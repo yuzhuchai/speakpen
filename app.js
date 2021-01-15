@@ -18,7 +18,7 @@ function resizeY(e){
     if((consoleHeight >= 60 && consoleHeight <= 400) || (consoleHeight < 60 && dy >= 0) || (consoleHeight > 400 && dy <= 0)){
         consoleDiv.style.height = (consoleHeight + dy) + "px";
         containerDiv.style.height = (parseInt(getComputedStyle(containerDiv, '').height) - dy) + "px";
-        console.log(dy)
+        // console.log(dy)
     } 
 }
 
@@ -37,7 +37,7 @@ function resizeXRight(e){
   if((extraWidth >= 60 && extraWidth <=400) || (extraWidth < 60 && dx >= 0) || (extraWidth > 400 && dx <=0)){
         extraDiv.style.width = (extraWidth + dx) + "px";
         canvasDiv.style.width = (parseInt(getComputedStyle(canvasDiv, '').width) - dx) + "px";
-        console.log(extraWidth, dx)
+        // console.log(extraWidth, dx)
     }
 }
 
