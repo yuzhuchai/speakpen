@@ -12,11 +12,25 @@ const BORDER_SIZE = 4;
 let y_pos;
 let x_pos;
 function resizeY(e){
-  const dy = y_pos - e.y;
-  y_pos = e.y;
-  consoleDiv.style.height = (parseInt(getComputedStyle(consoleDiv, '').height) + dy) + "px";
-  containerDiv.style.height = (parseInt(getComputedStyle(containerDiv, '').height) - dy) + "px";
-  console.log('hello'+y_pos)
+    const dy = y_pos - e.y;
+    y_pos = e.y;
+    let consoleHeight = parseInt(getComputedStyle(consoleDiv, '').height)
+    if(consoleHeight >= 60 && consoleHeight <= 500){
+        consoleDiv.style.height = (consoleHeight + dy) + "px";
+        containerDiv.style.height = (parseInt(getComputedStyle(containerDiv, '').height) - dy) + "px";
+        console.log(dy)
+    } else if (consoleHeight < 60 && dy > 0){
+        consoleDiv.style.height = (consoleHeight + dy) + "px";
+        containerDiv.style.height = (parseInt(getComputedStyle(containerDiv, '').height) - dy) + "px";
+        console.log(dy)
+    } else if (consoleHeight > 500 && dy < 0){
+        consoleDiv.style.height = (consoleHeight + dy) + "px";
+        containerDiv.style.height = (parseInt(getComputedStyle(containerDiv, '').height) - dy) + "px";
+        console.log(dy)
+    }
+//   console.log(consoleDiv.style.height);
+  console.log(consoleHeight)
+//   console.log('hello'+y_pos)
 }
 
 consoleDiv.addEventListener("mousedown", function(e){
@@ -31,7 +45,7 @@ function resizeXRight(e){
     x_pos = e.x;
     extraDiv.style.width = (parseInt(getComputedStyle(extraDiv, '').width) + dx) + "px";
     canvasDiv.style.width = (parseInt(getComputedStyle(canvasDiv, '').width) - dx) + "px";
-    console.log('hello'+x_pos)
+    // console.log('hello'+x_pos)
 }
 
 
@@ -48,7 +62,7 @@ function resizeXLeft(e){
     toolsDiv.style.width = (parseInt(getComputedStyle(toolsDiv, '').width) - dx) + "px";
     canvasDiv.style.width = (parseInt(getComputedStyle(canvasDiv, '').width) + dx) + "px";
     canvasDiv.style.left = (parseInt(getComputedStyle(canvasDiv, '').left) - dx) + "px";
-    console.log('hello'+x_pos)
+    // console.log('hello'+x_pos)
 }
 
 
