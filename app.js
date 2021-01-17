@@ -17,7 +17,7 @@ function resizeY(e){
     let consoleHeight = parseInt(getComputedStyle(consoleDiv, '').height)
     if((consoleHeight >= 60 && consoleHeight <= 400) || (consoleHeight < 60 && dy >= 0) || (consoleHeight > 400 && dy <= 0)){
         consoleDiv.style.height = (consoleHeight + dy) + "px";
-        containerDiv.style.height = (parseInt(getComputedStyle(containerDiv, '').height) - dy) + "px";
+        canvasDiv.style.height = (parseInt(getComputedStyle(canvasDiv, '').height) - dy) + "px";
         // console.log(dy)
     } 
 }
@@ -36,7 +36,7 @@ function resizeXRight(e){
     let extraWidth = parseInt(getComputedStyle(extraDiv, '').width)
   if((extraWidth >= 60 && extraWidth <=400) || (extraWidth < 60 && dx >= 0) || (extraWidth > 400 && dx <=0)){
         extraDiv.style.width = (extraWidth + dx) + "px";
-        canvasDiv.style.width = (parseInt(getComputedStyle(canvasDiv, '').width) - dx) + "px";
+        containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) - dx) + "px";
         // console.log(extraWidth, dx)
     }
 }
@@ -54,8 +54,8 @@ function resizeXLeft(e){
     let toolsWidth = parseInt(getComputedStyle(toolsDiv, '').width)
     if((toolsWidth >=60 && toolsWidth <= 400) || (toolsWidth < 60 && dx <= 0) || (toolsWidth > 400 && dx >= 0)){
         toolsDiv.style.width = (toolsWidth - dx) + "px";
-        canvasDiv.style.width = (parseInt(getComputedStyle(canvasDiv, '').width) + dx) + "px";
-        canvasDiv.style.left = (parseInt(getComputedStyle(canvasDiv, '').left) - dx) + "px";
+        containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) + dx) + "px";
+        containerDiv.style.left = (parseInt(getComputedStyle(containerDiv, '').left) - dx) + "px";
         // console.log('hello'+x_pos)
     }
 }

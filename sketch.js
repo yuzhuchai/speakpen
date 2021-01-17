@@ -11,5 +11,5 @@ function draw(){
     createCanvas(mainWdidth,mainHeight)
     // console.log(width, height);
     
-    background(100,0,0)
+    // background(100,0,0)
 }
