@@ -7,7 +7,7 @@ const toolsDiv = document.getElementById('tools');
 const extraDiv = document.getElementById('extra')
 const canvasDiv = document.getElementById('canvasContainer')
 
-const BORDER_SIZE = 4;
+const BORDER_SIZE = 6;
 
 let y_pos;
 let x_pos;
@@ -18,8 +18,6 @@ function resizeY(e){
     if((consoleHeight >= 60 && consoleHeight <= 400) || (consoleHeight < 60 && dy >= 0) || (consoleHeight > 400 && dy <= 0)){
         consoleDiv.style.height = (consoleHeight + dy) + "px";
         canvasDiv.style.height = (parseInt(getComputedStyle(canvasDiv, '').height) - dy) + "px";
-        // consoleDiv.style.height = convertPercentage($('#console'), "height")
-        // canvasDiv.style.height = convertPercentage($('#canvasContainer'), "height")
     } 
 }
 
@@ -38,8 +36,6 @@ function resizeXRight(e){
   if((extraWidth >= 60 && extraWidth <=400) || (extraWidth < 60 && dx >= 0) || (extraWidth > 400 && dx <=0)){
         extraDiv.style.width = (extraWidth + dx) + "px";
         containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) - dx) + "px";
-        // extraDiv.style.width = convertPercentage($('#extra'), "width")
-        // containerDiv.style.width = convertPercentage($('#container'), 'width')
     }
 }
 
@@ -102,5 +98,4 @@ function convertPercentage(div, side){
     console.log(percentage)
     return percentage
 }
-
 
