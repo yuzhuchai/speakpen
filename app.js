@@ -1,6 +1,8 @@
 console.log("connected");
 
-
+let hovering = false;
+let cursorText = ''
+let inputPen = false;
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
@@ -100,9 +102,28 @@ function convertPercentage(div, side){
 
 
 
-// update the title of the drawing 
+// update the input text live  ----------------------------------------------------------------------------------
+// this updates the title 
 $('#title').on('input',function(e){
-    // let update = $('#title').val()
     $('#titleText').text(e.target.value)
 })
+// this updates the cursor text
+$('#word').on('input',function(e){
+    cursorText = e.target.value
+    inputPen = true;
+})
 
+
+// this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
+$(document).mousemove(function(){
+
+    if($('#canvasContainer:hover').length !=0){
+        // checking to see if the cursor is hovering over the canvas
+        console.log('hovering')
+        // console.log($('#canvasContainer:hover').length)
+        hovering = true;
+    } else {
+        hovering = false
+    }
+    console.log(hovering)
+})
