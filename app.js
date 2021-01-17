@@ -1,6 +1,7 @@
 console.log("connected");
 
 
+// the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
 const toolsDiv = document.getElementById('tools');
@@ -73,6 +74,7 @@ document.addEventListener("mouseup", function(){
 
 
 
+// this function converts the pixel to percentage for responsive page layout ,, buggy--------------------------------------------
 function convertPercentage(div, side){
     let percent 
     let child 
@@ -88,14 +90,19 @@ function convertPercentage(div, side){
         parent = div.offsetParent().width();
         console.log(div)
         console.log(div.offsetParent())
-
-
-    }
-        
+    }    
     percent = Math.round(100 * child /parent)
     let percentage = parseInt(percent) + '%'
     // console.log(parseInt(percent) + "%")
     console.log(percentage)
     return percentage
 }
+
+
+
+// update the title of the drawing 
+$('#title').on('input',function(e){
+    // let update = $('#title').val()
+    $('#titleText').text(e.target.value)
+})
 
