@@ -3,6 +3,7 @@ console.log("connected");
 let hovering = false;
 let cursorText = ''
 let inputPen = false;
+
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
@@ -57,7 +58,6 @@ function resizeXLeft(e){
         toolsDiv.style.width = (toolsWidth - dx) + "px";
         containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) + dx) + "px";
         containerDiv.style.left = (parseInt(getComputedStyle(containerDiv, '').left) - dx) + "px";
-        // console.log('hello'+x_pos)
     }
 }
 
@@ -95,7 +95,6 @@ function convertPercentage(div, side){
     }    
     percent = Math.round(100 * child /parent)
     let percentage = parseInt(percent) + '%'
-    // console.log(parseInt(percent) + "%")
     console.log(percentage)
     return percentage
 }
@@ -110,20 +109,20 @@ $('#title').on('input',function(e){
 // this updates the cursor text
 $('#word').on('input',function(e){
     cursorText = e.target.value
-    inputPen = true;
+    console.log(e.target.value)
+    if(e.target.value == ''){
+        inputPen = false;
+    }else{
+        inputPen = true;
+    }
 })
 
 
 // this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
 $(document).mousemove(function(){
-
     if($('#canvasContainer:hover').length !=0){
-        // checking to see if the cursor is hovering over the canvas
-        console.log('hovering')
-        // console.log($('#canvasContainer:hover').length)
         hovering = true;
     } else {
         hovering = false
     }
-    console.log(hovering)
 })
