@@ -1,20 +1,19 @@
-// console.log(width, height);
 function setup(){
    
 }
 
 
 function draw(){
-    
+    // this sets the canvas size responsive -------------------------------------------------
     let mainWdidth = document.getElementById("canvasContainer").offsetWidth
     let mainHeight = document.getElementById("canvasContainer").offsetHeight
     createCanvas(mainWdidth,mainHeight)
-    // console.log(width, height);
+    
+    // this sets the cursor text responsive -------------------------------------------------
+    fill(cursorColor)
     if(inputPen){
         text(cursorText, mouseX, mouseY)
     } else {
         text('pen', mouseX, mouseY)
     }
-    
-    // background(100,0,0)
 }

@@ -3,6 +3,7 @@ console.log("connected");
 let hovering = false;
 let cursorText = ''
 let inputPen = false;
+let cursorColor = '#000000'
 
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
@@ -116,6 +117,16 @@ $('#word').on('input',function(e){
         inputPen = true;
     }
 })
+//this updates the cursor color
+$('#color').on('input',function(e){
+    // console.log(e.target.value)
+    cursorColor = e.target.value
+})
+
+
+
+
+
 
 
 // this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
