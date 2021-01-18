@@ -4,6 +4,7 @@ let hovering = false;
 let cursorText = ''
 let inputPen = false;
 let cursorColor = '#000000'
+let cursorSize = 12
 
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
@@ -12,7 +13,7 @@ const toolsDiv = document.getElementById('tools');
 const extraDiv = document.getElementById('extra')
 const canvasDiv = document.getElementById('canvasContainer')
 
-const BORDER_SIZE = 6;
+const BORDER_SIZE = 2;
 
 let y_pos;
 let x_pos;
@@ -63,7 +64,8 @@ function resizeXLeft(e){
 }
 
 toolsDiv.addEventListener('mousedown', function(e){
-    if(e.offsetX > BORDER_SIZE){
+    // there is a big here!!!!!!!!!!!
+    if(e.offsetX > (e.offsetX+BORDER_SIZE) ){
         x_pos = e.x
         document.addEventListener('mousemove',resizeXLeft, false)
     }
@@ -122,7 +124,11 @@ $('#color').on('input',function(e){
     // console.log(e.target.value)
     cursorColor = e.target.value
 })
-
+//this updates the cursor size
+$('#size').on('input',function(e){
+    cursorSize = parseInt(e.target.value)
+    // console.log(cursorSize)
+})
 
 
 

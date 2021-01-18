@@ -11,6 +11,7 @@ function draw(){
     
     // this sets the cursor text responsive -------------------------------------------------
     fill(cursorColor)
+    textSize(cursorSize)
     if(inputPen){
         text(cursorText, mouseX, mouseY)
     } else {
