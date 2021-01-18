@@ -14,8 +14,8 @@ class Word{
         if(this.text){
             this.displayText()
         }else if(!this.text){
-            console.log(this.color)
-            // fill(this.color)
+            // console.log(this.color)
+            fill(this.color)
             circle(this.x, this.y, this.size)
         }
     }

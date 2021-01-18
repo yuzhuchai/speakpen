@@ -46,8 +46,10 @@ function draw(){
         circle(mouseX,mouseY, erasorSize)
     }
 
-    noStroke()
+
+    
     // tihs pushed the text obj into a drawn so that it will update evey frame 
+    noStroke()
     if(mouseIsPressed && hovering){
         if(erasorType == 'et'){
             drawn.push(new Word(cursorText, erasorSize, rgbCol, 255, cursorStyle, null, mouseX, mouseY))
