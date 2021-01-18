@@ -13,6 +13,7 @@ let colorExpands = false
 let alphaVal = 255
 let bgColor='#ffffff'
 let rgbCol=hexToRgb('#000000')
+let cursorStyle = 'NORMAL'
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
@@ -179,7 +180,6 @@ $('#size').on('input',function(e){
 $('#bold').on('click',function(e){
     if(!curosrBold){
         curosrBold = true
-        // $('.toolBar').css('border-color', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`)
         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
     } else if(curosrBold){
         curosrBold = false
@@ -191,7 +191,6 @@ $('#italics').on('click',function(e){
     if(!cursorItalics){
         cursorItalics = true
         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-        // e.target.style.backgroundColor = 'red'
     } else if(cursorItalics){
         cursorItalics = false
         e.target.style.backgroundColor = ''
@@ -202,7 +201,6 @@ $('#movements').on('click',function(e){
     if(!movementsExpand){
         movementsExpand = true
         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-        // e.target.style.backgroundColor = 'red'
         $('#movementsExpandDiv').css('display','block') 
         
     } else if(movementsExpand){

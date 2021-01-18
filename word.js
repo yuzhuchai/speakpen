@@ -1,5 +1,5 @@
 class Word{
-    constructor(text, size=12, color, alpha, style='normal', movement='none', x, y) {
+    constructor(text, size=12, color, alpha, style, movement='none', x, y) {
         this.text = text,
         this.size = size,
         this.color = color,
@@ -12,12 +12,19 @@ class Word{
     }
 
     display(){
-        console.log(this.color)
         let textC = color(this.color.r, this.color.g, this.color.b, this.alpha) 
-        // textC.setAlpha(alpha) 
-        // console.log(textC)
+        // console.log(this.style)
         fill(textC)
         textSize(this.size)
+        if(this.style=='BOLD'){
+            textStyle(BOLD)
+        } else if(this.style=='ITALIC'){
+            textStyle(ITALIC)
+        } else if(this.style=='NORMAL'){
+            textStyle(NORMAL)
+        } else if (this.style=='BOLDITALIC'){
+            textStyle(BOLDITALIC)
+        }
         text(this.text, this.x, this.y)
     }
 

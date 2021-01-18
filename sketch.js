@@ -1,4 +1,5 @@
 let drawn = []
+// let cursorStyle 
 
 function setup(){
    
@@ -18,12 +19,16 @@ function draw(){
     fill(c)
     textSize(cursorSize)
     if(curosrBold && !cursorItalics){
+        cursorStyle = 'BOLD'
         textStyle(BOLD)
     } else if (cursorItalics && !curosrBold){
+        cursorStyle = 'ITALIC'
         textStyle(ITALIC)
     } else if (curosrBold && cursorItalics){
+        cursorStyle='BOLDITALIC'
         textStyle(BOLDITALIC)
     } else if(!curosrBold && !cursorItalics){
+        cursorStyle='NORMAL'
         textStyle(NORMAL)
     }
     if(inputPen){
@@ -32,17 +37,14 @@ function draw(){
         text('pen', mouseX, mouseY)
     }
 
-    // console.log(cursorText,'<---cursorTextin draw')
     if(mouseIsPressed){
         console.log('pressed')
-        // console.log(cursorText,'<===cursorText when mousepRessed ')
-        // drawn.push(new Word('hello'))
-        drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, 'style', 'movement', mouseX, mouseY))
-        // console.log(drawn)
+        // console.log(cursorStyle)
+        drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY))
     }
 
     for (let word of drawn){
-        // console.log(word)
         word.display()
     }
+
 }
