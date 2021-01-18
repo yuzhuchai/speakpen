@@ -109,12 +109,25 @@ function convertPercentage(div, side){
     return percentage
 }
 
-
+// this function turns color hex code into rgb value ---------------------------------------------------
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
 
 // update the input text live  ----------------------------------------------------------------------------------
 // this updates the backgroundColor
 $('#bgColor').on('input',function(e){
     bgColor = e.target.value 
+    rgbCol = hexToRgb(bgColor)
+    $('.toolBar').css('background', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.4)`)
+    $('.toolBar').css('border-color', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`)
+
+    // console.log($('.toolbar'))
     // console.log(bgColor)
 })
 
