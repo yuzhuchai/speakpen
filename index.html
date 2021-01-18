@@ -24,13 +24,19 @@
             <div class='toolBar' id='tools'>
                 <div class='formDiv'>
                     <input type='text' id='word' name='word' placeholder='pen'/>
-                    <input type='color' id='color' name='color'/>
+                    <input type='button' id='color' name='color' value='color'/>
+
+                    <div class='expandDiv' id='colorExpandDiv'>
+                        <input type='color' id='colorPicker' name='colorPicker'/>
+                        <input type='range' id='alpha' name='alpha' min='0' max='255' value='255'/>
+                    </div>
+
                     <input type='range' id='size' name='size' min='1' max='100' value='12' step='1'/>
                     <input type='button' id='bold' name='bold' value='B'/>
                     <input type='button' id='italics' name='italics' value='i'/>
-                    <input type='button' id='movements' name='movements' value='m'/>
 
-                    <div id='movementsExpandDiv'>
+                    <input type='button' id='movements' name='movements' value='m'/>
+                    <div class='expandDiv' id='movementsExpandDiv'>
                         <input type='button' id='fall' name='fall' value='fall'/>
                         <input type='button' id='float' name='float' value='float'/>
                         <input type='button' id='dance' name='dance' value='dance'/>

@@ -10,7 +10,9 @@ function draw(){
     createCanvas(mainWdidth,mainHeight)
     
     // this sets the cursor text responsive -------------------------------------------------
-    fill(cursorColor)
+    let c = color(cursorColor)
+    c.setAlpha(alphaVal)
+    fill(c)
     textSize(cursorSize)
     if(curosrBold && !cursorItalics){
         textStyle(BOLD)

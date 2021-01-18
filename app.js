@@ -8,7 +8,9 @@ let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
 let movementsExpand = false
-
+let colorExpands = false 
+let alphaVal = 255
+// let expandsClicked = false 
 
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
@@ -123,10 +125,28 @@ $('#word').on('input',function(e){
         inputPen = true;
     }
 })
+//this opens up the color selection
+$('#color').on('click',function(e){
+    if(!colorExpands){
+        colorExpands = true
+        e.target.style.backgroundColor = 'red'
+        $('#colorExpandDiv').css('display','block') 
+    } else if(colorExpands){
+        colorExpands = false
+        e.target.style.backgroundColor = ''
+        $('#colorExpandDiv').css('display','none')  
+    }
+})
+
 //this updates the cursor color
-$('#color').on('input',function(e){
+$('#colorPicker').on('input',function(e){
     // console.log(e.target.value)
     cursorColor = e.target.value
+})
+//this sets the alpha value of the text 
+$('#alpha').on('input',function(e){
+    alphaVal = parseInt(e.target.value)
+    console.log(alphaVal)
 })
 //this updates the cursor size
 $('#size').on('input',function(e){
@@ -158,6 +178,7 @@ $('#movements').on('click',function(e){
         movementsExpand = true
         e.target.style.backgroundColor = 'red'
         $('#movementsExpandDiv').css('display','block') 
+        
     } else if(movementsExpand){
         movementsExpand = false
         e.target.style.backgroundColor = ''
