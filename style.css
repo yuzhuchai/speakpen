@@ -76,3 +76,7 @@ main{
     top: 5%;
     position:fixed;
 }
+
+#movementsExpandDiv{
+    display: none;
+}

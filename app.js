@@ -7,6 +7,8 @@ let cursorColor = '#000000'
 let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
+let movementsExpand = false
+
 
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
@@ -135,7 +137,6 @@ $('#bold').on('click',function(e){
     if(!curosrBold){
         curosrBold = true
         e.target.style.backgroundColor = 'red'
-        console.log(e.target.style)
     } else if(curosrBold){
         curosrBold = false
         e.target.style.backgroundColor = ''
@@ -146,13 +147,23 @@ $('#italics').on('click',function(e){
     if(!cursorItalics){
         cursorItalics = true
         e.target.style.backgroundColor = 'red'
-        console.log(e.target.style)
     } else if(cursorItalics){
         cursorItalics = false
         e.target.style.backgroundColor = ''
     }
 })
-
+//this opens up the movement options:
+$('#movements').on('click',function(e){
+    if(!movementsExpand){
+        movementsExpand = true
+        e.target.style.backgroundColor = 'red'
+        $('#movementsExpandDiv').css('display','block') 
+    } else if(movementsExpand){
+        movementsExpand = false
+        e.target.style.backgroundColor = ''
+        $('#movementsExpandDiv').css('display','none')  
+    }
+})
 
 
 
