@@ -4,6 +4,7 @@ let hovering = false;
 let cursorText = ''
 let inputPen = false;
 let cursorColor = '#000000'
+let cursorRGB = hexToRgb('#000000')
 let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
@@ -163,6 +164,7 @@ $('#color').on('click',function(e){
 $('#colorPicker').on('input',function(e){
     // console.log(e.target.value)
     cursorColor = e.target.value
+    cursorRGB = hexToRgb(cursorColor)
 })
 //this sets the alpha value of the text 
 $('#alpha').on('input',function(e){
@@ -221,3 +223,8 @@ $(document).mousemove(function(){
         hovering = false
     }
 })
+
+
+
+
+// this function creates new word when the 

@@ -1,8 +1,9 @@
 class Word{
-    constructor(text, size=12, color, style='normal', movement='none', x, y) {
+    constructor(text, size=12, color, alpha, style='normal', movement='none', x, y) {
         this.text = text,
         this.size = size,
         this.color = color,
+        this.alpha = alpha,
         // this.font = font,
         this.style = style,
         this.movement= movement,
@@ -11,11 +12,13 @@ class Word{
     }
 
     display(){
-        // this.color.setAlpha() 
-        // console.log(this)
-        text(this.text, this.x, this.y)
         console.log(this.color)
-        // textSize(this.size)
+        let textC = color(this.color.r, this.color.g, this.color.b, this.alpha) 
+        // textC.setAlpha(alpha) 
+        // console.log(textC)
+        fill(textC)
+        textSize(this.size)
+        text(this.text, this.x, this.y)
     }
 
     update(){
