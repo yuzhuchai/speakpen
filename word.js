@@ -4,16 +4,26 @@ class Word{
         this.size = size,
         this.color = color,
         this.alpha = alpha,
-        // this.font = font,
         this.style = style,
         this.movement= movement,
         this.x = x,
         this.y = y
     }
 
-    display(){
+    createBrush(){
+        // first check what we are pushign 
+        if(!erasorType || this.erasorType == 'et'){
+            this.displayText()
+        } else if(erasorType == 'et'){
+            
+        } else if (erasorType == 'en'){
+
+        }
+        
+    }
+
+    displayText(){
         let textC = color(this.color.r, this.color.g, this.color.b, this.alpha) 
-        // console.log(this.style)
         fill(textC)
         textSize(this.size)
         if(this.style=='BOLD'){
@@ -30,5 +40,9 @@ class Word{
 
     update(){
 
+    }
+
+    checkErasor(){
+        console.log(erasorType)
     }
 }

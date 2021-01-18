@@ -9,56 +9,61 @@ let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
 let movementsExpand = false
+let erasorExpand = false 
+let fillFuncExpand = false 
 let colorExpands = false 
 let alphaVal = 255
 let bgColor='#ffffff'
 let rgbCol=hexToRgb('#000000')
 let cursorStyle = 'NORMAL'
+let erasorType=null
+let erasorSize = 12
+
 // the following functions creates responsive page layout ---------------------------------------------------
-const consoleDiv = document.getElementById('console');
+// const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
 const toolsDiv = document.getElementById('tools');
-const extraDiv = document.getElementById('extra')
+// const extraDiv = document.getElementById('extra')
 const canvasDiv = document.getElementById('canvasContainer')
 
 const BORDER_SIZE = 2;
 
 let y_pos;
 let x_pos;
-function resizeY(e){
-    const dy = y_pos - e.y;
-    y_pos = e.y;
-    let consoleHeight = parseInt(getComputedStyle(consoleDiv, '').height)
-    if((consoleHeight >= 60 && consoleHeight <= 400) || (consoleHeight < 60 && dy >= 0) || (consoleHeight > 400 && dy <= 0)){
-        consoleDiv.style.height = (consoleHeight + dy) + "px";
-        canvasDiv.style.height = (parseInt(getComputedStyle(canvasDiv, '').height) - dy) + "px";
-    } 
-}
+// function resizeY(e){
+//     const dy = y_pos - e.y;
+//     y_pos = e.y;
+//     let consoleHeight = parseInt(getComputedStyle(consoleDiv, '').height)
+//     if((consoleHeight >= 60 && consoleHeight <= 400) || (consoleHeight < 60 && dy >= 0) || (consoleHeight > 400 && dy <= 0)){
+//         consoleDiv.style.height = (consoleHeight + dy) + "px";
+//         canvasDiv.style.height = (parseInt(getComputedStyle(canvasDiv, '').height) - dy) + "px";
+//     } 
+// }
 
-consoleDiv.addEventListener("mousedown", function(e){
-  if (e.offsetY < BORDER_SIZE) {
-    y_pos = e.y;
-    document.addEventListener("mousemove", resizeY, false);
-  }
-}, false);
+// consoleDiv.addEventListener("mousedown", function(e){
+//   if (e.offsetY < BORDER_SIZE) {
+//     y_pos = e.y;
+//     document.addEventListener("mousemove", resizeY, false);
+//   }
+// }, false);
 
 
-function resizeXRight(e){
-    const dx = x_pos - e.x;
-    x_pos = e.x;
-    let extraWidth = parseInt(getComputedStyle(extraDiv, '').width)
-  if((extraWidth >= 60 && extraWidth <=400) || (extraWidth < 60 && dx >= 0) || (extraWidth > 400 && dx <=0)){
-        extraDiv.style.width = (extraWidth + dx) + "px";
-        containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) - dx) + "px";
-    }
-}
+// function resizeXRight(e){
+//     const dx = x_pos - e.x;
+//     x_pos = e.x;
+//     let extraWidth = parseInt(getComputedStyle(extraDiv, '').width)
+//   if((extraWidth >= 60 && extraWidth <=400) || (extraWidth < 60 && dx >= 0) || (extraWidth > 400 && dx <=0)){
+//         extraDiv.style.width = (extraWidth + dx) + "px";
+//         containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) - dx) + "px";
+//     }
+// }
 
-extraDiv.addEventListener('mousedown', function(e){
-    if(e.offsetX < BORDER_SIZE){
-        x_pos = e.x
-        document.addEventListener('mousemove',resizeXRight, false)
-    }
-})
+// extraDiv.addEventListener('mousedown', function(e){
+//     if(e.offsetX < BORDER_SIZE){
+//         x_pos = e.x
+//         document.addEventListener('mousemove',resizeXRight, false)
+//     }
+// })
 
 function resizeXLeft(e){
     const dx = x_pos - e.x;
@@ -80,8 +85,8 @@ toolsDiv.addEventListener('mousedown', function(e){
 })
 
 document.addEventListener("mouseup", function(){
-    document.removeEventListener("mousemove", resizeY,false);
-    document.removeEventListener("mousemove", resizeXRight,false);
+    // document.removeEventListener("mousemove", resizeY,false);
+    // document.removeEventListener("mousemove", resizeXRight,false);
     document.removeEventListener("mousemove", resizeXLeft,false);
 }, false);
 
@@ -209,8 +214,51 @@ $('#movements').on('click',function(e){
         $('#movementsExpandDiv').css('display','none')  
     }
 })
+// thi opens the fill options:
+$('#fillFunc').on('click', function(e){
+    if(!fillFuncExpand){
+        fillFuncExpand = true
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+        $('#fillExpandDiv').css('display','block') 
+    
+    } else if(fillFuncExpand){
+        fillFuncExpand = false 
+        e.target.style.backgroundColor = ''
+        $('#fillExpandDiv').css('display','none') 
+    }
 
+})
 
+// this opens the erasor options:
+$('#eraseFunc').on('click', function(e){
+    if(!erasorExpand){
+        erasorExpand = true
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+        $('#eraseExpandDiv').css('display','block') 
+    } else if(erasorExpand){
+        erasorExpand = false 
+        e.target.style.backgroundColor = ''
+        $('#eraseExpandDiv').css('display','none') 
+    }
+})
+
+// the following function determins which type of erasor is picked
+$('.erasorType').on('click',function(e){
+    let erasors = document.getElementsByClassName('erasorType')
+    erasors[0].style.backgroundColor=''
+    erasors[1].style.backgroundColor=''
+    if(erasorType != e.target.value){
+        erasorType = e.target.value
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+    }else if(erasorType == e.target.value){
+        erasorType = null
+        e.target.style.backgroundColor = ''
+    }
+})
+// this updates the size of the erasor 
+$('#erasesize').on('input',function(e){
+    erasorSize = parseInt(e.target.value)
+})
 
 
 // this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
