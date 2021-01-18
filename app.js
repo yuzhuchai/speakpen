@@ -11,8 +11,7 @@ let movementsExpand = false
 let colorExpands = false 
 let alphaVal = 255
 let bgColor='#ffffff'
-// let expandsClicked = false 
-
+let rgbCol=hexToRgb('#000000')
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
@@ -126,7 +125,6 @@ $('#bgColor').on('input',function(e){
     rgbCol = hexToRgb(bgColor)
     $('.toolBar').css('background', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.4)`)
     $('.toolBar').css('border-color', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`)
-
     // console.log($('.toolbar'))
     // console.log(bgColor)
 })
@@ -150,7 +148,9 @@ $('#word').on('input',function(e){
 $('#color').on('click',function(e){
     if(!colorExpands){
         colorExpands = true
-        e.target.style.backgroundColor = 'red'
+        // e.target.style.backgroundColor = 'red'
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+
         $('#colorExpandDiv').css('display','block') 
     } else if(colorExpands){
         colorExpands = false
@@ -177,7 +177,8 @@ $('#size').on('input',function(e){
 $('#bold').on('click',function(e){
     if(!curosrBold){
         curosrBold = true
-        e.target.style.backgroundColor = 'red'
+        // $('.toolBar').css('border-color', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`)
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
     } else if(curosrBold){
         curosrBold = false
         e.target.style.backgroundColor = ''
@@ -187,7 +188,8 @@ $('#bold').on('click',function(e){
 $('#italics').on('click',function(e){
     if(!cursorItalics){
         cursorItalics = true
-        e.target.style.backgroundColor = 'red'
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+        // e.target.style.backgroundColor = 'red'
     } else if(cursorItalics){
         cursorItalics = false
         e.target.style.backgroundColor = ''
@@ -197,7 +199,8 @@ $('#italics').on('click',function(e){
 $('#movements').on('click',function(e){
     if(!movementsExpand){
         movementsExpand = true
-        e.target.style.backgroundColor = 'red'
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+        // e.target.style.backgroundColor = 'red'
         $('#movementsExpandDiv').css('display','block') 
         
     } else if(movementsExpand){

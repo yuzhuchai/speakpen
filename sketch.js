@@ -1,3 +1,5 @@
+let drawn = []
+
 function setup(){
    
 }
@@ -29,4 +31,21 @@ function draw(){
     } else {
         text('pen', mouseX, mouseY)
     }
+
+    // console.log(cursorText,'<---cursorTextin draw')
+    if(mouseIsPressed){
+        console.log('pressed')
+        // console.log(cursorText,'<===cursorText when mousepRessed ')
+        // drawn.push(new Word('hello'))
+        drawn.push(new Word(cursorText, cursorSize, cursorColor, 'style', 'movement', mouseX, mouseY))
+        // console.log(drawn)
+    }
+
+    for (let word of drawn){
+        // console.log(word)
+        fill(0,0,0)
+        word.display()
+    }
+
+    text('hello?', 10,10)
 }
