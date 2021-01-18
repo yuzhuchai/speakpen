@@ -12,6 +12,15 @@ function draw(){
     // this sets the cursor text responsive -------------------------------------------------
     fill(cursorColor)
     textSize(cursorSize)
+    if(curosrBold && !cursorItalics){
+        textStyle(BOLD)
+    } else if (cursorItalics && !curosrBold){
+        textStyle(ITALIC)
+    } else if (curosrBold && cursorItalics){
+        textStyle(BOLDITALIC)
+    } else if(!curosrBold && !cursorItalics){
+        textStyle(NORMAL)
+    }
     if(inputPen){
         text(cursorText, mouseX, mouseY)
     } else {

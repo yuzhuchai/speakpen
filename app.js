@@ -5,6 +5,8 @@ let cursorText = ''
 let inputPen = false;
 let cursorColor = '#000000'
 let cursorSize = 12
+let curosrBold = false  
+let cursorItalics = false
 
 // the following functions creates responsive page layout ---------------------------------------------------
 const consoleDiv = document.getElementById('console');
@@ -127,9 +129,29 @@ $('#color').on('input',function(e){
 //this updates the cursor size
 $('#size').on('input',function(e){
     cursorSize = parseInt(e.target.value)
-    // console.log(cursorSize)
 })
-
+// this updates sytle - bold:
+$('#bold').on('click',function(e){
+    if(!curosrBold){
+        curosrBold = true
+        e.target.style.backgroundColor = 'red'
+        console.log(e.target.style)
+    } else if(curosrBold){
+        curosrBold = false
+        e.target.style.backgroundColor = ''
+    }
+})
+// this updates style - italics:
+$('#italics').on('click',function(e){
+    if(!cursorItalics){
+        cursorItalics = true
+        e.target.style.backgroundColor = 'red'
+        console.log(e.target.style)
+    } else if(cursorItalics){
+        cursorItalics = false
+        e.target.style.backgroundColor = ''
+    }
+})
 
 
 
