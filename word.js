@@ -11,15 +11,13 @@ class Word{
     }
 
     createBrush(){
-        // first check what we are pushign 
-        if(!erasorType || this.erasorType == 'et'){
+        if(this.text){
             this.displayText()
-        } else if(erasorType == 'et'){
-            
-        } else if (erasorType == 'en'){
-
+        }else if(!this.text){
+            console.log(this.color)
+            // fill(this.color)
+            circle(this.x, this.y, this.size)
         }
-        
     }
 
     displayText(){
@@ -42,7 +40,4 @@ class Word{
 
     }
 
-    checkErasor(){
-        console.log(erasorType)
-    }
 }

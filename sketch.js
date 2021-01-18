@@ -40,15 +40,19 @@ function draw(){
         textSize(erasorSize)
         stroke(cursorColor)
         text(cursorText, mouseX, mouseY)
+    }else if(inputPen && erasorType=='en'){
+        stroke(cursorColor)
+        noFill()
+        circle(mouseX,mouseY, erasorSize)
     }
 
     noStroke()
     // tihs pushed the text obj into a drawn so that it will update evey frame 
     if(mouseIsPressed && hovering){
         if(erasorType == 'et'){
-            drawn.push(new Word(cursorText, erasorSize, rgbCol, 255, cursorStyle, 'none', mouseX, mouseY))
+            drawn.push(new Word(cursorText, erasorSize, rgbCol, 255, cursorStyle, null, mouseX, mouseY))
         } else if(erasorType == 'en'){
-
+            drawn.push(new Word(null,erasorSize,bgColor,255,null,null,mouseX, mouseY))
         } else if (!erasorType){
             drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY))
             // console.log(erasorType)
@@ -56,8 +60,8 @@ function draw(){
     }
 
     for (let word of drawn){
-        word.displayText()
-        // word.createBrush()
+        // word.displayText()
+        word.createBrush()
     }
 
 }
