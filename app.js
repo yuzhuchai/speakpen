@@ -10,6 +10,7 @@ let cursorItalics = false
 let movementsExpand = false
 let colorExpands = false 
 let alphaVal = 255
+let bgColor='#ffffff'
 // let expandsClicked = false 
 
 // the following functions creates responsive page layout ---------------------------------------------------
@@ -111,6 +112,13 @@ function convertPercentage(div, side){
 
 
 // update the input text live  ----------------------------------------------------------------------------------
+// this updates the backgroundColor
+$('#bgColor').on('input',function(e){
+    bgColor = e.target.value 
+    // console.log(bgColor)
+})
+
+
 // this updates the title 
 $('#title').on('input',function(e){
     $('#titleText').text(e.target.value)
