@@ -52,25 +52,44 @@ function draw(){
     noStroke()
     if(mouseIsPressed && hovering){
         if(erasorType == 'et'){
-            drawn.push(new Word(cursorText, erasorSize, rgbCol, 255, cursorStyle, null, mouseX, mouseY))
+            drawn.push(new Word(cursorText, erasorSize, rgbCol, 255, cursorStyle, null, mouseX, mouseY, false))
         } else if(erasorType == 'en'){
-            drawn.push(new Word(null,erasorSize,bgColor,255,null,null,mouseX, mouseY))
+            drawn.push(new Word(null,erasorSize,bgColor,255,null,null,mouseX, mouseY, false))
         } else if (!erasorType){
-            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY))
+            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY, true))
             // console.log(erasorType)
         }
     }
 
+    // this draws everywords on to the canvas everyframe-------------------------------------
     for (let word of drawn){
         // word.displayText()
         word.createBrush()
     }
 
+
+    // this function erase the canvas -----------------------------------------------------
     if(eraseAll){
         drawn = []
         console.log('cleared', drawn)
         eraseAll = false;
     }
+
+
+// this function resent the erasors color to the same as the bgcolor when bgcolor is changed --------------------------
+    if(bgColorChanged){
+        drawn.map((word) => {
+            if(!word.isText && !word.text){
+                word.color = bgColor
+            } else if(!word.isText && word.text){
+                word.color = rgbCol
+            }
+        })
+    }
+
+
+
+
 
 // draw the cursor text again so it always stays on top of the drawings, always visible.
     if(inputPen && !erasorType){

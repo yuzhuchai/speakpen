@@ -1,5 +1,5 @@
 class Word{
-    constructor(text, size=12, color, alpha, style, movement='none', x, y) {
+    constructor(text, size=12, color, alpha, style, movement='none', x, y, isText) {
         this.text = text,
         this.size = size,
         this.color = color,
@@ -7,7 +7,8 @@ class Word{
         this.style = style,
         this.movement= movement,
         this.x = x,
-        this.y = y
+        this.y = y,
+        this.isText = isText
     }
 
     createBrush(){

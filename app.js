@@ -20,6 +20,7 @@ let cursorStyle = 'NORMAL'
 let erasorType=null
 let erasorSize = 12
 let eraseAll = false 
+let bgColorChanged = false 
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -130,6 +131,7 @@ function hexToRgb(hex) {
 // update the input text live  ----------------------------------------------------------------------------------
 // this updates the backgroundColor
 $('#bgColor').on('input',function(e){
+    bgColorChanged = true
     bgColor = e.target.value 
     rgbCol = hexToRgb(bgColor)
     $('.toolBar').css('background', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.4)`)
