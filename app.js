@@ -1,5 +1,6 @@
 console.log("connected");
 
+
 let hovering = false;
 let cursorText = 'pen'
 let inputPen = false;
@@ -10,7 +11,7 @@ let curosrBold = false
 let cursorItalics = false
 let movementsExpand = false
 let erasorExpand = false 
-let fillFuncExpand = false 
+let fillFuncExpand = false  
 let colorExpands = false 
 let alphaVal = 255
 let bgColor='#ffffff'
@@ -18,6 +19,7 @@ let rgbCol=hexToRgb('#ffffff')
 let cursorStyle = 'NORMAL'
 let erasorType=null
 let erasorSize = 12
+let eraseAll = false 
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -260,6 +262,10 @@ $('#erasesize').on('input',function(e){
     erasorSize = parseInt(e.target.value)
 })
 
+// this function erase the whole canvas
+$('#eraseAll').on('click',function(e){
+    eraseAll = true
+})
 
 // this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
 $(document).mousemove(function(){

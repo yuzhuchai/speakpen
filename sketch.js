@@ -66,4 +66,26 @@ function draw(){
         word.createBrush()
     }
 
+    if(eraseAll){
+        drawn = []
+        console.log('cleared', drawn)
+        eraseAll = false;
+    }
+
+// draw the cursor text again so it always stays on top of the drawings, always visible.
+    if(inputPen && !erasorType){
+        text(cursorText, mouseX, mouseY)
+    } else if(!inputPen && !erasorType){
+        text('pen', mouseX, mouseY)
+    } else if(inputPen && erasorType=='et'){
+        noFill()
+        textSize(erasorSize)
+        stroke(cursorColor)
+        text(cursorText, mouseX, mouseY)
+    }else if(inputPen && erasorType=='en'){
+        stroke(cursorColor)
+        noFill()
+        circle(mouseX,mouseY, erasorSize)
+    }
+
 }
