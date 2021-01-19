@@ -1,7 +1,7 @@
 console.log("connected");
 
 let hovering = false;
-let cursorText = ''
+let cursorText = 'pen'
 let inputPen = false;
 let cursorColor = '#000000'
 let cursorRGB = hexToRgb('#000000')
@@ -14,7 +14,7 @@ let fillFuncExpand = false
 let colorExpands = false 
 let alphaVal = 255
 let bgColor='#ffffff'
-let rgbCol=hexToRgb('#000000')
+let rgbCol=hexToRgb('#ffffff')
 let cursorStyle = 'NORMAL'
 let erasorType=null
 let erasorSize = 12
