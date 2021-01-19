@@ -21,6 +21,7 @@ let erasorType=null
 let erasorSize = 12
 let eraseAll = false 
 let bgColorChanged = false 
+let fillType = null
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -233,6 +234,24 @@ $('#fillFunc').on('click', function(e){
 
 })
 
+
+// this function picks the fill methods 
+$('.fillType').on('click', function(e){
+    let fillSelect = document.getElementsByClassName('fillType')
+    fillSelect[0].style.backgroundColor = ''
+    fillSelect[1].style.backgroundColor = ''
+    if(fillType != e.target.value){
+        fillType = e.target.value
+        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+    } else if (fillType == e.target.value){
+        fillType = null
+        e.target.style.backgroundColor = ''
+    }
+    // console.log(fillType)
+})
+
+
+
 // this opens the erasor options:
 $('#eraseFunc').on('click', function(e){
     if(!erasorExpand){
@@ -280,5 +299,3 @@ $(document).mousemove(function(){
 
 
 
-
-// this function creates new word when the 

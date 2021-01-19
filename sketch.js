@@ -1,4 +1,19 @@
 let drawn = []
+let fillRect = {
+    x:null,
+    y:null,
+    width: null,
+    height: null,
+}
+
+let fillTextPos = {
+    xMin: null,
+    yMin: null,
+    xMax: null,
+    yMax: null
+}
+
+let fillOnRelease = false 
 
 function setup(){
    
@@ -51,14 +66,19 @@ function draw(){
     // tihs pushed the text obj into a drawn so that it will update evey frame 
     noStroke()
     if(mouseIsPressed && hovering){
+        // console.log('hello')
+        // console.log(fillType)
         if(erasorType == 'et'){
+            // this is drawing the text as erasors 
             drawn.push(new Word(cursorText, erasorSize, rgbCol, 255, cursorStyle, null, mouseX, mouseY, false))
         } else if(erasorType == 'en'){
+            // this is drawng a regular erasor
             drawn.push(new Word(null,erasorSize,bgColor,255,null,null,mouseX, mouseY, false))
-        } else if (!erasorType){
+        } else if (!erasorType && !fillType){
+            // this is drawin the regular text 
             drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY, true))
-            // console.log(erasorType)
-        }
+        } 
+
     }
 
     // this draws everywords on to the canvas everyframe-------------------------------------
@@ -71,7 +91,7 @@ function draw(){
     // this function erase the canvas -----------------------------------------------------
     if(eraseAll){
         drawn = []
-        console.log('cleared', drawn)
+        // console.log('cleared', drawn)
         eraseAll = false;
     }
 
@@ -90,8 +110,7 @@ function draw(){
 
 
 
-
-// draw the cursor text again so it always stays on top of the drawings, always visible.
+// draw the cursor text again so it always stays on top of the drawings, always visible.  ------- this function stays at the end ------------
     if(inputPen && !erasorType){
         text(cursorText, mouseX, mouseY)
     } else if(!inputPen && !erasorType){
@@ -106,5 +125,46 @@ function draw(){
         noFill()
         circle(mouseX,mouseY, erasorSize)
     }
+    
+    if(fillType && mouseIsPressed){
+        noFill()
+        stroke(cursorColor)
+        console.log('little bit confused ')
+        createFillRect(mouseX,mouseY)
+    }   
+
+}
+
+
+
+    // this function checks the positions that mouse covers.   
+    function createFillRect(x,y){
+        if(!fillRect.x){
+            fillTextPos.xMin = mouseX 
+            fillTextPos.yMin = mouseY 
+            fillRect.x = mouseX
+            fillRect.y = mouseY
+        } 
+        fillRect.width = parseInt(x) - parseInt(fillRect.x)
+        fillRect.height = parseInt(y) - parseInt(fillRect.y)
+        // console.log(fillRect)
+        // noFill()
+        // stroke(cursorColor)
+        rect(fillRect.x, fillRect.y, fillRect.width, fillRect.height)
+    }
+
+function mouseReleased(){
+    // console.log(fillRect.x, fillRect.y, mouseX, mouseY)
+    if(fillRect.x){
+        fillTextPos.xMax = mouseX 
+        fillTextPos.yMax = mouseY 
+        fillRect.x = null
+        fillRect.y = null
+        fillOnRelease = true 
+        for (let i = 0; i <= 100; i++){
+            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', random(fillTextPos.xMin, fillTextPos.xMax), random(fillTextPos.yMin, fillTextPos.yMax), true))
+        }
+    }
+
 
 }
