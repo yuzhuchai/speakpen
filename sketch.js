@@ -27,6 +27,7 @@ function draw(){
     let mainHeight = document.getElementById("canvasContainer").offsetHeight
     createCanvas(mainWdidth,mainHeight)
     background(bgColor)
+    textAlign(CENTER,CENTER)
     // this sets the cursor text responsive -------------------------------------------------
     let c = color(cursorColor)
     c.setAlpha(alphaVal)
@@ -125,8 +126,8 @@ function draw(){
         noFill()
         circle(mouseX,mouseY, erasorSize)
     }
-    
-    if(fillType && mouseIsPressed){
+    // this creates the fill function 
+    if(fillType && mouseIsPressed && !erasorType){
         noFill()
         stroke(cursorColor)
         console.log('little bit confused ')
@@ -137,24 +138,21 @@ function draw(){
 
 
 
-    // this function checks the positions that mouse covers.   
-    function createFillRect(x,y){
-        if(!fillRect.x){
-            fillTextPos.xMin = mouseX 
-            fillTextPos.yMin = mouseY 
-            fillRect.x = mouseX
-            fillRect.y = mouseY
-        } 
-        fillRect.width = parseInt(x) - parseInt(fillRect.x)
-        fillRect.height = parseInt(y) - parseInt(fillRect.y)
-        // console.log(fillRect)
-        // noFill()
-        // stroke(cursorColor)
-        rect(fillRect.x, fillRect.y, fillRect.width, fillRect.height)
-    }
+// this function checks the positions that mouse covers.   
+function createFillRect(x,y){
+    if(!fillRect.x){
+        fillTextPos.xMin = mouseX 
+        fillTextPos.yMin = mouseY 
+        fillRect.x = mouseX
+        fillRect.y = mouseY
+    } 
+    fillRect.width = parseInt(x) - parseInt(fillRect.x)
+    fillRect.height = parseInt(y) - parseInt(fillRect.y)
+    rect(fillRect.x, fillRect.y, fillRect.width, fillRect.height)
+}
 
+// this function push the random filling text into the drawn
 function mouseReleased(){
-    // console.log(fillRect.x, fillRect.y, mouseX, mouseY)
     if(fillRect.x){
         fillTextPos.xMax = mouseX 
         fillTextPos.yMax = mouseY 

@@ -21,11 +21,16 @@
 
 
         <div id='flex'>
+
+            <!-- all the tools stays in tool bar for now, till design is finished -->
             <div class='toolBar' id='tools'>
-                <div class='formDiv'>
+                
+
+                <!-- thesee guys will be moved to the top menu bar -->
                     <input type='color' id='bgColor' name='bgColor' />
                     <input type='text' id='word' name='word' placeholder='pen'/>
                     <input type='button' id='color' name='color' value='color'/>
+                    <!-- color should stay outside and not expand -->
                     <div class='expandDiv' id='colorExpandDiv'>
                         <input type='color' id='colorPicker' name='colorPicker'/>
                         <input type='range' id='alpha' name='alpha' min='0' max='255' value='255'/>
@@ -33,7 +38,18 @@
                     <input type='range' id='size' name='size' min='1' max='100' value='12' step='1'/>
                     <input type='button' id='bold' name='bold' value='B'/>
                     <input type='button' id='italics' name='italics' value='i'/>
+                    <input type='button' id='screenshor' name='screenshot' value='sreemshor' />
 
+                    <!-- this is for picking the brushes, add one more choice so it's 2X2 and you can only chose them one at a time  -->
+                    <input type='button' id='pen' name='pen' value='pen'/>
+                    <input type='button' id='fillFunc' name='fillFunc' value='fill'/>
+                    <input type='button' id='eraseFunc' name='eraseFunc' value='erase'/>
+                    
+                    
+
+
+
+                <!-- these will stay here, movements will not have to expand, stay outside after the pen choices  -->
                     <input type='button' id='movements' name='movements' value='m'/>
                     <div class='expandDiv' id='movementsExpandDiv'>
                         <input type='button' id='fall' name='fall' value='fall'/>
@@ -42,34 +58,30 @@
                         <input type='button' id='expand' name='expand' value='expand'/>
                     </div>
 
-                    <input type='button' id='fillFunc' name='fillFunc' value='fill'/>
-                    <div class='expandDiv' id='fillExpandDiv'>
-                        <input type='button' class='fillType' id='randomFill' name='randomFill' value='randomFill'/>
-                        <input type='button' class='fillType' id='regFill' name='regFill' value='regFill'/>
-                    </div>
-
-
-                    <input type='button' id='eraseFunc' name='eraseFunc' value='erase'/>
-                    <div class='expandDiv' id='eraseExpandDiv'>
-                        <input type='button' class='erasorType' id='eraseText' name='eraseText' value='et'/>
-                        <input type='button' class='erasorType' id='eraseN' name='eraseN' value='en'/>
-                        <input type='range' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
-                        <input type='button' id='eraseAll' name='eraseAll' value='ea'/>
-                    </div>
+                <!-- this is the exapaningdiv, will stay in the button of the thing -->
+                <div class='expandDiv' id='fillExpandDiv'>
+                    <input type='button' class='fillType' id='randomFill' name='randomFill' value='randomFill'/>
+                    <input type='button' class='fillType' id='regFill' name='regFill' value='regFill'/>
                 </div>
+
+
+                <div class='expandDiv' id='eraseExpandDiv'>
+                    <input type='button' class='erasorType' id='eraseText' name='eraseText' value='et'/>
+                    <input type='button' class='erasorType' id='eraseN' name='eraseN' value='en'/>
+                    <input type='range' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
+                    <input type='button' id='eraseAll' name='eraseAll' value='ea'/>
+                </div>
+
+            
             </div>
 
 
             <div id='container'>
-                
-            <main id='canvasContainer'>
-                <!-- canvas tag with id=defaultCanvas0 is where the p5 canvas is -->
-            </main> 
-                
-            <!-- <div class='toolBar' id='console'></div> -->
+                <main id='canvasContainer'>
+                    <!-- canvas tag with id=defaultCanvas0 is where the p5 canvas is -->
+                </main> 
+            </div>
 
-         </div>
-        <!-- <div class='toolBar' id='extra'></div> -->
         </div>
         
 
