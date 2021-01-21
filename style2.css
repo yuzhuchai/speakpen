@@ -115,17 +115,18 @@ input{
 }
 
 .toolBarDivide{
-    outline: 1px black solid;
+    /* outline: 1px black solid; */
     width: 85%;
     margin:auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     /* margin-top: 5vh ; */
 }
 
 #pensContainer{
-    padding-top: 3vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
 
 #pen{
@@ -138,4 +139,22 @@ input{
 
 #eraseFunc{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/erasor.png');
+}
+
+#eraseText{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/terasor.png');
+}
+#eraseN{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/nerasor.png');
+}
+#eraseAll{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/clear.png');
+}
+
+#expandingContainer {
+    background: #C4C4C4;
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
 }
