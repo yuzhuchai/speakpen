@@ -16,7 +16,41 @@
 
         <div id='container'>
             <div id=menuContainer>
-                <div id='menuBar'></div>
+                <div id='menuBar'>
+                    <!-- this is input the text -->
+                    <input type='text' id='word' name='word' placeholder='pen'/>
+                    <!-- this is size of the text -->
+                    <div class='toggleDiv'>
+                        <input type='button' class='buttonIcon' id='sizeB' name='sizeB'/>
+                        <input type='range' class='toggleItem' id='size' name='size' min='1' max='100' value='12' step='1'/>
+                    </div>
+                    <!-- this is backgroudn color  -->
+                    <div class='toggleDiv'>
+                        <input type='button' class='buttonIcon' id='bgColorB' name='bgColorB' />
+                        <input type='color' class='toggleItem' id='bgColor' name='bgColor' />
+                    </div>
+                    
+                    <!-- this is color of the text -->
+                    <div class='toggleDiv'>
+                        <input type='button' class='buttonIcon' id='colorB' name='colorB' />
+                        <input type='color' id='colorPicker' class='toggleItem' name='colorPicker'/>
+                    </div>
+
+                    <!-- this is picking opacity of the color  -->
+                    <div class='toggleDiv'>
+                        <input type='button' class='buttonIcon' id='alphaB' name='alphaB' />
+                        <input type='range' id='alpha' class='toggleItem' name='alpha' min='0' max='255' value='255'/>
+                    </div>
+
+                    <!-- this is making the text bold -->
+                    <input type='button' class='buttonIcon' id='bold' name='bold' />
+                    
+                    <!-- this is making the text itilic -->
+                    <input type='button' class='buttonIcon' id='italics' name='italics' />
+
+                    
+
+                </div>
             </div>
             <div id='toolsContainer'>
                 <div id=toolBar></div>
@@ -31,5 +65,5 @@
         
     </body>
 
-    <script src='sketch.js'></script>
+    <!-- <script src='sketch.js'></script> -->
 </html>
