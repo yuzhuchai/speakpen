@@ -127,6 +127,8 @@ input{
 #pensContainer{
     padding-top: 2vh;
     padding-bottom: 2vh;
+    border-bottom: 2px solid #C4C4C4;
+    margin-bottom: 2vh;
 }
 
 #pen{
@@ -157,4 +159,24 @@ input{
     border-radius: 10px;
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
+}
+
+#reMove{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/rm.png');
+}
+
+#brMove{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/bm.png');
+}
+
+#reSize{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/blowup.png');
+}
+
+#blink{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/blink.png');
+}
+
+#movementContainer{
+    padding-bottom: 2vh;
 }
