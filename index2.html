@@ -20,36 +20,48 @@
                     <!-- this is input the text -->
                     <input type='text' id='word' name='word' placeholder='pen'/>
                     <!-- this is size of the text -->
-                    <div class='toggleDiv'>
-                        <input type='button' class='buttonIcon' id='sizeB' name='sizeB'/>
-                        <input type='range' class='toggleItem' id='size' name='size' min='1' max='100' value='12' step='1'/>
+                    <div class='toggleDiv toggleIcon'>
+                        <div class='buttonIcon' id='sizeB'></div>
+                        <div class='toggleItem'>
+                            <input type='range' id='size' name='size' min='1' max='100' value='12' step='1'/>
+                        </div>
                     </div>
                     <!-- this is backgroudn color  -->
                     <div class='toggleDiv'>
-                        <input type='button' class='buttonIcon' id='bgColorB' name='bgColorB' />
-                        <input type='color' class='toggleItem' id='bgColor' name='bgColor' />
+                        <label for='bgColor'>
+                            <div class='buttonIcon' id='bgColorB'></div>
+                            <!-- <input type='button' class='buttonIcon' id='bgColorB' name='bgColorB' /> -->
+                        </label>
+                        <div class='toggleItem'>
+                            <input type='color' id='bgColor' name='bgColor' />
+                        </div>
                     </div>
                     
                     <!-- this is color of the text -->
                     <div class='toggleDiv'>
-                        <input type='button' class='buttonIcon' id='colorB' name='colorB' />
-                        <input type='color' id='colorPicker' class='toggleItem' name='colorPicker'/>
+                        <label for='colorPicker'><div class='buttonIcon' id='colorB'></div></label>
+                        <!-- <input type='button' class='buttonIcon' id='colorB' name='colorB' /> -->
+                        <div class='toggleItem'>
+                            <input type='color' id='colorPicker' name='colorPicker'/>
+                        </div>
                     </div>
 
                     <!-- this is picking opacity of the color  -->
-                    <div class='toggleDiv'>
-                        <input type='button' class='buttonIcon' id='alphaB' name='alphaB' />
-                        <input type='range' id='alpha' class='toggleItem' name='alpha' min='0' max='255' value='255'/>
+                    <div class='toggleDiv toggleIcon'>
+                        <div class='buttonIcon' id='alphaB'></div>
+                        <div class='toggleItem'>
+                            <input type='range' id='alpha'  name='alpha' min='0' max='255' value='255'/>
+                        </div>
                     </div>
 
                     <!-- this is making the text bold -->
-                    <input type='button' class='buttonIcon' id='bold' name='bold' />
+                    <div class='buttonIcon' id='bold' ></div>
                     
                     <!-- this is making the text itilic -->
-                    <input type='button' class='buttonIcon' id='italics' name='italics' />
+                    <div class='buttonIcon' id='italics' name='italics' ></div>
 
                     <!-- this is download drawing function -->
-                    <input type='button' class='buttonIcon' id='save' name='save' />
+                    <div class='buttonIcon' id='save' name='save' ></div>
                     
                 </div>
 
@@ -58,24 +70,24 @@
             <div id='toolsContainer'>
                 <div id=toolBar>
                     <div class='toolBarDivide' id='pensContainer'>
-                        <input type='button' class='buttonIcon' id='pen' name='pen'/>
-                        <input type='button' class='buttonIcon' id='fillFunc' name='fillFunc' />
-                        <input type='button' class='buttonIcon' id='eraseFunc' name='eraseFunc' />
-                        <input type='button' class='buttonIcon' id='anotherOne' name='anotherOne' />
+                        <div class='buttonIcon' id='pen' ></div>
+                        <div class='buttonIcon' id='fillFunc' name='fillFunc' ></div>
+                        <div class='buttonIcon' id='eraseFunc' name='eraseFunc' ></div>
+                        <div class='buttonIcon' id='anotherOne' name='anotherOne' ></div>
                     </div>
 
                     <div class='toolBarDivide' id='movementContainer'>
-                        <input type='button' class='buttonIcon' id='reMove' name='reMove'/>
-                        <input type='button' class='buttonIcon' id='brMove' name='brMove'/>
-                        <input type='button' class='buttonIcon' id='reSize' name='reSize'/>
-                        <input type='button' class='buttonIcon' id='blink' name='blink'/>
+                        <div class='buttonIcon' id='reMove' name='reMove'></div>
+                        <div class='buttonIcon' id='brMove' name='brMove'></div>
+                        <div class='buttonIcon' id='reSize' name='reSize'></div>
+                        <div class='buttonIcon' id='blink' name='blink'></div>
                         
                     </div>
 
                     <div class='toolBarDivide expandDiv' id='expandingContainer'>
-                        <input type='button' class='buttonIcon erasorType expandEra' id='eraseText' name='eraseText'/>
-                        <input type='button' class='buttonIcon erasorType expandEra' id='eraseN' name='eraseN'/>
-                        <input type='button' class='buttonIcon expandEra' id='eraseAll' name='eraseAll'/>
+                        <div class='buttonIcon erasorType expandEra' id='eraseText' name='eraseText'></div>
+                        <div class='buttonIcon erasorType expandEra' id='eraseN' name='eraseN'></div>
+                        <div class='buttonIcon expandEra' id='eraseAll' name='eraseAll'></div>
                         <input type='range' class='buttonIcon expandEra' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
                     </div>
                 </div>
@@ -89,6 +101,8 @@
         
         
     </body>
-
+    <script>
+        
+    </script>
     <!-- <script src='sketch.js'></script> -->
 </html>
