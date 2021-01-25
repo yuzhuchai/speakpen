@@ -69,31 +69,46 @@ let x_pos;
 //     }
 // })
 
-function resizeXLeft(e){
-    const dx = x_pos - e.x;
-    x_pos = e.x;
-    let toolsWidth = parseInt(getComputedStyle(toolsDiv, '').width)
-    if((toolsWidth >=60 && toolsWidth <= 400) || (toolsWidth < 60 && dx <= 0) || (toolsWidth > 400 && dx >= 0)){
-        toolsDiv.style.width = (toolsWidth - dx) + "px";
-        containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) + dx) + "px";
-        containerDiv.style.left = (parseInt(getComputedStyle(containerDiv, '').left) - dx) + "px";
-    }
-}
+// function resizeXLeft(e){
+//     const dx = x_pos - e.x;
+//     x_pos = e.x;
+//     let toolsWidth = parseInt(getComputedStyle(toolsDiv, '').width)
+//     if((toolsWidth >=60 && toolsWidth <= 400) || (toolsWidth < 60 && dx <= 0) || (toolsWidth > 400 && dx >= 0)){
+//         toolsDiv.style.width = (toolsWidth - dx) + "px";
+//         containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) + dx) + "px";
+//         containerDiv.style.left = (parseInt(getComputedStyle(containerDiv, '').left) - dx) + "px";
+//     }
+// }
 
-toolsDiv.addEventListener('mousedown', function(e){
-    // there is a big here!!!!!!!!!!!
-    if(e.offsetX > (e.offsetX+BORDER_SIZE) ){
-        x_pos = e.x
-        document.addEventListener('mousemove',resizeXLeft, false)
-    }
+// toolsDiv.addEventListener('mousedown', function(e){
+//     // there is a big here!!!!!!!!!!!
+//     if(e.offsetX > (e.offsetX+BORDER_SIZE) ){
+//         x_pos = e.x
+//         document.addEventListener('mousemove',resizeXLeft, false)
+//     }
+// })
+
+// document.addEventListener("mouseup", function(){
+//     // document.removeEventListener("mousemove", resizeY,false);
+//     // document.removeEventListener("mousemove", resizeXRight,false);
+//     document.removeEventListener("mousemove", resizeXLeft,false);
+// }, false);
+
+// this function displays the function of the button when hovering over 
+$('.menuIcon').mouseenter(function(e){
+    // console.log(e.target.className)
+    let name = e.target.className.split(" ")
+    // console.log(name)
+    $('#menuText').html(name[0].replace("-",' '))
+}).mouseleave(function(){
+    $('#menuText').html('')
 })
-
-document.addEventListener("mouseup", function(){
-    // document.removeEventListener("mousemove", resizeY,false);
-    // document.removeEventListener("mousemove", resizeXRight,false);
-    document.removeEventListener("mousemove", resizeXLeft,false);
-}, false);
-
+$('.toolBarIcon').mouseenter(function(e){
+    let name = e.target.className.split(' ')
+    $('#toobarText').html(name[0].replace("-",' '))
+}).mouseleave(function(){
+    $('#toobarText').html('')
+})
 
 
 // this function converts the pixel to percentage for responsive page layout ,, buggy--------------------------------------------

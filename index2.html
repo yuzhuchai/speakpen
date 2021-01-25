@@ -21,7 +21,7 @@
                     <input type='text' id='word' name='word' placeholder='pen'/>
                     <!-- this is size of the text -->
                     <div class='toggleDiv toggleIcon'>
-                        <div class='buttonIcon' id='sizeB'></div>
+                        <div class='resize buttonIcon menuIcon' id='sizeB'></div>
                         <div class='toggleItem'>
                             <input type='range' id='size' name='size' min='1' max='100' value='12' step='1'/>
                         </div>
@@ -29,7 +29,7 @@
                     <!-- this is backgroudn color  -->
                     <div class='toggleDiv'>
                         <label for='bgColor'>
-                            <div class='buttonIcon' id='bgColorB'></div>
+                            <div class='background-color buttonIcon menuIcon' id='bgColorB'></div>
                             <!-- <input type='button' class='buttonIcon' id='bgColorB' name='bgColorB' /> -->
                         </label>
                         <div class='toggleItem'>
@@ -39,7 +39,7 @@
                     
                     <!-- this is color of the text -->
                     <div class='toggleDiv'>
-                        <label for='colorPicker'><div class='buttonIcon' id='colorB'></div></label>
+                        <label for='colorPicker'><div class='color buttonIcon menuIcon' id='colorB'></div></label>
                         <!-- <input type='button' class='buttonIcon' id='colorB' name='colorB' /> -->
                         <div class='toggleItem'>
                             <input type='color' id='colorPicker' name='colorPicker'/>
@@ -48,20 +48,20 @@
 
                     <!-- this is picking opacity of the color  -->
                     <div class='toggleDiv toggleIcon'>
-                        <div class='buttonIcon' id='alphaB'></div>
+                        <div class='opacity buttonIcon menuIcon' id='alphaB'></div>
                         <div class='toggleItem'>
                             <input type='range' id='alpha'  name='alpha' min='0' max='255' value='255'/>
                         </div>
                     </div>
 
                     <!-- this is making the text bold -->
-                    <div class='buttonIcon' id='bold' ></div>
+                    <div class='bold buttonIcon menuIcon' id='bold' ></div>
                     
                     <!-- this is making the text itilic -->
-                    <div class='buttonIcon' id='italics' name='italics' ></div>
+                    <div class='italics buttonIcon menuIcon' id='italics' name='italics' ></div>
 
-                    <!-- this is download drawing function -->
-                    <div class='buttonIcon' id='save' name='save' ></div>
+                    <!-- display the function when hovering -->
+                    <div id='menuText'>dasd</div>
                     
                 </div>
 
@@ -70,26 +70,31 @@
             <div id='toolsContainer'>
                 <div id=toolBar>
                     <div class='toolBarDivide' id='pensContainer'>
-                        <div class='buttonIcon' id='pen' ></div>
-                        <div class='buttonIcon' id='fillFunc' name='fillFunc' ></div>
-                        <div class='buttonIcon' id='eraseFunc' name='eraseFunc' ></div>
-                        <div class='buttonIcon' id='anotherOne' name='anotherOne' ></div>
+                        <div class='pen buttonIcon toolBarIcon' id='pen' ></div>
+                        <div class='fill buttonIcon toolBarIcon' id='fillFunc'></div>
+                        <div class='eraser buttonIcon toolBarIcon' id='eraseFunc'></div>
+                        <!-- this is the download function -->
+                        <div class='save buttonIcon toolBarIcon' id='save'></div>
+
+                        <!-- <div class='buttonIcon' id='anotherOne' name='anotherOne' ></div> -->
                     </div>
 
                     <div class='toolBarDivide' id='movementContainer'>
-                        <div class='buttonIcon' id='reMove' name='reMove'></div>
-                        <div class='buttonIcon' id='brMove' name='brMove'></div>
-                        <div class='buttonIcon' id='reSize' name='reSize'></div>
-                        <div class='buttonIcon' id='blink' name='blink'></div>
+                        <div class='move buttonIcon toolBarIcon' id='reMove' name='reMove'></div>
+                        <div class='brownian-motion buttonIcon toolBarIcon' id='brMove' name='brMove'></div>
+                        <div class='blow-up buttonIcon toolBarIcon' id='reSize'></div>
+                        <div class='blink buttonIcon toolBarIcon' id='blink'></div>
                         
                     </div>
 
                     <div class='toolBarDivide expandDiv' id='expandingContainer'>
-                        <div class='buttonIcon erasorType expandEra' id='eraseText' name='eraseText'></div>
-                        <div class='buttonIcon erasorType expandEra' id='eraseN' name='eraseN'></div>
-                        <div class='buttonIcon expandEra' id='eraseAll' name='eraseAll'></div>
-                        <input type='range' class='buttonIcon expandEra' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
+                        <div class='pen-eraser buttonIcon erasorType expandEra toolBarIcon' id='eraseText' name='eraseText'></div>
+                        <div class='regular-eraser buttonIcon erasorType expandEra toolBarIcon' id='eraseN' name='eraseN'></div>
+                        <div class='clear-all buttonIcon expandEra toolBarIcon' id='eraseAll' name='eraseAll'></div>
+                        <input type='range' class='eraser-size buttonIcon expandEra toolBarIcon' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
                     </div>
+
+                    <div id='toobarText'></div>
                 </div>
             </div>
             <div id='mainContainer'>
@@ -100,9 +105,13 @@
         
         
         
+    
     </body>
+    <script src="app.js"></script>
+    
     <script>
         
     </script>
+
     <!-- <script src='sketch.js'></script> -->
 </html>

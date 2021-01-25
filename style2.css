@@ -1,7 +1,6 @@
 body{
     background-color: #868686;
     margin:0;
-
 }
 
 
@@ -25,7 +24,7 @@ body{
 }
 
 #mainContainer{
-    width: 90vw;
+    width: 88vw;
     height:95vh;
     display: inline-block;
     margin:0;
@@ -101,7 +100,7 @@ input:focus{
 }
 
 .buttonIcon:hover{
-    border: 3px solid #3EB4F7; 
+    border: 3px solid #3EB4F7;  
 }
 
 #word {
@@ -138,19 +137,20 @@ input:focus{
 
 .toolBarDivide{
     /* outline: 1px black solid; */
-    width: 85%;
+    width: 6vw;
     margin:auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     /* margin-top: 5vh ; */
 }
 
 #pensContainer{
-    padding-top: 2vh;
-    padding-bottom: 2vh;
+    
     border-bottom: 2px solid #C4C4C4;
-    margin-bottom: 2vh;
+    /* margin-bottom: 2vh; */
 }
 
 #pen{
@@ -180,7 +180,7 @@ input:focus{
     box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
+    /* padding-bottom: 1.5vh; */
 }
 
 #reMove{
@@ -200,5 +200,21 @@ input:focus{
 }
 
 #movementContainer{
-    padding-bottom: 2vh;
+    
+    /* padding-bottom: 2vh; */
+}
+
+#toobarText{
+    padding-top: 4vh;
+    bottom: 4vh;
+    margin:auto;
+    text-align: center;
+    color: #3EB4F6;
+}
+
+#menuText{
+    margin-left: 2vw;
+    /* margin:auto; */
+    text-align: center;
+    color: #3EB4F6;
 }
