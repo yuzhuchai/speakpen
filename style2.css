@@ -100,7 +100,7 @@ input:focus{
 }
 
 .buttonIcon:hover{
-    border: 3px solid #3EB4F7;  
+    border: 3px solid #3EB4F7;
 }
 
 #word {
@@ -155,6 +155,7 @@ input:focus{
 
 #pen{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/pen.png');
+    border: 3px solid #3EB4F7;
 }
 
 #fillFunc{
@@ -165,10 +166,10 @@ input:focus{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/erasor.png');
 }
 
-#eraseText{
+#et{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/terasor.png');
 }
-#eraseN{
+#en{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/nerasor.png');
 }
 #eraseAll{
@@ -201,10 +202,7 @@ input:focus{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/blink.png');
 }
 
-#movementContainer{
-    
-    /* padding-bottom: 2vh; */
-}
+
 
 #toobarText{
     padding-top: 4vh;
@@ -221,6 +219,6 @@ input:focus{
     color: #3EB4F6;
 }
 
-.expandItem{
+.expandItems{
     display: none;
 }

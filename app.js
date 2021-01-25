@@ -10,7 +10,7 @@ let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
 // let movementsExpand = false
-// let erasorExpand = false 
+let erasorExpand = false 
 // let fillFuncExpand = false  
 let colorExpands = false 
 let alphaVal = 255
@@ -21,7 +21,7 @@ let erasorType=null
 let erasorSize = 12
 let eraseAll = false 
 let bgColorChanged = false 
-let fillType = null
+// let fillType = null
 let fillSelect = false 
 let eraseerSelect = false 
 
@@ -162,6 +162,7 @@ $('#italics').on('click',function(e){
         e.target.style.backgroundColor = ''
     }
 })
+
 //this opens up the movement options:
 // $('#movements').on('click',function(e){
 //     if(!movementsExpand){
@@ -184,22 +185,29 @@ $('.penItems').on('click',function(e){
         nodes[i].style.border = '2px solid black'
     }
     e.target.style.border = '3px solid #3EB4F7'
+    let erasers = document.getElementsByClassName('erasorType')
+    erasers[0].style.border = '3px solid black'
+    erasers[1].style.border = '3px solid black'
+    erasorType = null
     // console.log(e.target.id)
     let penMethod = e.target.id
     if(penMethod == "pen"){
         fillSelect = false;
-        eraseerSelect = false 
+        eraserSelect = false 
     } else if(penMethod == 'fillFunc'){
         fillSelect = true;
-        eraseerSelect = false 
+        eraserSelect = false 
     } else if(penMethod == 'eraseFunc'){
         eraserSelect = true 
         fillSelect = false 
     }
-    console.log(fillSelect)
+    if(eraserSelect){
+        $('#eraserItems').show()
+    } else {
+        $('#eraserItems').hide()
+    }
+    
 })
-
-
 
 
 // thi opens the fill options:
@@ -219,47 +227,44 @@ $('.penItems').on('click',function(e){
 
 
 // this function picks the fill methods 
-$('.fillType').on('click', function(e){
-    let fillSelect = document.getElementsByClassName('fillType')
-    fillSelect[0].style.backgroundColor = ''
-    fillSelect[1].style.backgroundColor = ''
-    if(fillType != e.target.value){
-        fillType = e.target.value
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-    } else if (fillType == e.target.value){
-        fillType = null
-        e.target.style.backgroundColor = ''
-    }
-    // console.log(fillType)
-})
+// $('.fillType').on('click', function(e){
+//     let fillSelect = document.getElementsByClassName('fillType')
+//     fillSelect[0].style.backgroundColor = ''
+//     fillSelect[1].style.backgroundColor = ''
+//     if(fillType != e.target.value){
+//         fillType = e.target.value
+//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+//     } else if (fillType == e.target.value){
+//         fillType = null
+//         e.target.style.backgroundColor = ''
+//     }
+//     // console.log(fillType)
+// })
 
 
 
 // this opens the erasor options:
-$('#eraseFunc').on('click', function(e){
-    if(!erasorExpand){
-        erasorExpand = true
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-        $('#eraseExpandDiv').css('display','block') 
-    } else if(erasorExpand){
-        erasorExpand = false 
-        e.target.style.backgroundColor = ''
-        $('#eraseExpandDiv').css('display','none') 
-    }
-})
+// $('#eraseFunc').on('click', function(e){
+//     if(!erasorExpand){
+//         erasorExpand = true
+//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+//         $('#eraseExpandDiv').css('display','block') 
+//     } else if(erasorExpand){
+//         erasorExpand = false 
+//         e.target.style.backgroundColor = ''
+//         $('#eraseExpandDiv').css('display','none') 
+//     }
+// })
 
 // the following function determins which type of erasor is picked
 $('.erasorType').on('click',function(e){
-    let erasors = document.getElementsByClassName('erasorType')
-    erasors[0].style.backgroundColor=''
-    erasors[1].style.backgroundColor=''
-    if(erasorType != e.target.value){
-        erasorType = e.target.value
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-    }else if(erasorType == e.target.value){
-        erasorType = null
-        e.target.style.backgroundColor = ''
-    }
+    console.log('clicked, pictype')
+    let erasers = document.getElementsByClassName('erasorType')
+    erasers[0].style.border = '3px solid black'
+    erasers[1].style.border = '3px solid black'
+    erasorType = e.target.id
+    e.target.style.border = '3px solid #3EB4F7'
+    console.log(erasorType)
 })
 // this updates the size of the erasor 
 $('#erasesize').on('input',function(e){
@@ -269,6 +274,7 @@ $('#erasesize').on('input',function(e){
 // this function erase the whole canvas
 $('#eraseAll').on('click',function(e){
     eraseAll = true
+    console.log('clicked, clear allss')
 })
 
 // this function id trying to display the word choice as brush on the cursor when course hovers over the canvas

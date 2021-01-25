@@ -88,10 +88,13 @@
                     </div>
 
                     <div class='toolBarDivide expandDiv' id='expandingContainer'>
-                        <div class='pen-eraser buttonIcon erasorType expandEra toolBarIcon expandItem' id='eraseText' name='eraseText'></div>
-                        <div class='regular-eraser buttonIcon erasorType expandEra toolBarIcon expandItem' id='eraseN' name='eraseN'></div>
-                        <div class='clear-all buttonIcon expandEra toolBarIcon expandItem' id='eraseAll' name='eraseAll'></div>
-                        <input type='range' class='eraser-size buttonIcon expandEra toolBarIcon expandItem' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
+                        <div class='expandItems' id='eraserItems'>
+                            <div class='pen-eraser buttonIcon erasorType expandEra toolBarIcon' id='et' name='eraseText'></div>
+                            <div class='regular-eraser buttonIcon erasorType expandEra toolBarIcon' id='en' name='eraseN'></div>
+                            <div class='clear-all buttonIcon expandEra toolBarIcon' id='eraseAll' name='eraseAll'></div>
+                            <input type='range' class='eraser-size buttonIcon expandEra toolBarIcon' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
+                        </div>
+                        
                     </div>
 
                     <div id='toobarText'></div>

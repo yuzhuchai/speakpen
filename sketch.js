@@ -117,11 +117,14 @@ function draw(){
     } else if(!inputPen && !erasorType){
         text('pen', mouseX, mouseY)
     } else if(inputPen && erasorType=='et'){
+        console.log(cursorColor,'<===== et')
+
         noFill()
         textSize(erasorSize)
         stroke(cursorColor)
         text(cursorText, mouseX, mouseY)
     }else if(inputPen && erasorType=='en'){
+        console.log(cursorColor,'<===== en')
         stroke(cursorColor)
         noFill()
         circle(mouseX,mouseY, erasorSize)
