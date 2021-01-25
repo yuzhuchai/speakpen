@@ -76,11 +76,10 @@ function draw(){
         } else if(erasorType == 'en'){
             // this is drawng a regular erasor
             drawn.push(new Word(null,erasorSize,bgColor,255,null,null,mouseX, mouseY, false))
-        } else if (!erasorType && !fillType){
+        } else if (!erasorType && !fillSelect){
             // this is drawin the regular text 
             drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY, true))
         } 
-
     }
 
 //     // this draws everywords on to the canvas everyframe-------------------------------------
@@ -128,7 +127,7 @@ function draw(){
         circle(mouseX,mouseY, erasorSize)
     }
     // this creates the fill function 
-    if(fillType && mouseIsPressed && !erasorType){
+    if(fillSelect && mouseIsPressed && !erasorType){
         noFill()
         stroke(cursorColor)
         console.log('little bit confused ')

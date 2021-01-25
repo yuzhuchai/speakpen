@@ -9,9 +9,9 @@ let cursorRGB = hexToRgb('#000000')
 let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
-let movementsExpand = false
-let erasorExpand = false 
-let fillFuncExpand = false  
+// let movementsExpand = false
+// let erasorExpand = false 
+// let fillFuncExpand = false  
 let colorExpands = false 
 let alphaVal = 255
 let bgColor='#ffffff'
@@ -22,6 +22,8 @@ let erasorSize = 12
 let eraseAll = false 
 let bgColorChanged = false 
 let fillType = null
+let fillSelect = false 
+let eraseerSelect = false 
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -30,69 +32,7 @@ const toolsDiv = document.getElementById('tools');
 // const extraDiv = document.getElementById('extra')
 const canvasDiv = document.getElementById('canvasContainer')
 
-const BORDER_SIZE = 2;
 
-let y_pos;
-let x_pos;
-// function resizeY(e){
-//     const dy = y_pos - e.y;
-//     y_pos = e.y;
-//     let consoleHeight = parseInt(getComputedStyle(consoleDiv, '').height)
-//     if((consoleHeight >= 60 && consoleHeight <= 400) || (consoleHeight < 60 && dy >= 0) || (consoleHeight > 400 && dy <= 0)){
-//         consoleDiv.style.height = (consoleHeight + dy) + "px";
-//         canvasDiv.style.height = (parseInt(getComputedStyle(canvasDiv, '').height) - dy) + "px";
-//     } 
-// }
-
-// consoleDiv.addEventListener("mousedown", function(e){
-//   if (e.offsetY < BORDER_SIZE) {
-//     y_pos = e.y;
-//     document.addEventListener("mousemove", resizeY, false);
-//   }
-// }, false);
-
-
-// function resizeXRight(e){
-//     const dx = x_pos - e.x;
-//     x_pos = e.x;
-//     let extraWidth = parseInt(getComputedStyle(extraDiv, '').width)
-//   if((extraWidth >= 60 && extraWidth <=400) || (extraWidth < 60 && dx >= 0) || (extraWidth > 400 && dx <=0)){
-//         extraDiv.style.width = (extraWidth + dx) + "px";
-//         containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) - dx) + "px";
-//     }
-// }
-
-// extraDiv.addEventListener('mousedown', function(e){
-//     if(e.offsetX < BORDER_SIZE){
-//         x_pos = e.x
-//         document.addEventListener('mousemove',resizeXRight, false)
-//     }
-// })
-
-// function resizeXLeft(e){
-//     const dx = x_pos - e.x;
-//     x_pos = e.x;
-//     let toolsWidth = parseInt(getComputedStyle(toolsDiv, '').width)
-//     if((toolsWidth >=60 && toolsWidth <= 400) || (toolsWidth < 60 && dx <= 0) || (toolsWidth > 400 && dx >= 0)){
-//         toolsDiv.style.width = (toolsWidth - dx) + "px";
-//         containerDiv.style.width = (parseInt(getComputedStyle(containerDiv, '').width) + dx) + "px";
-//         containerDiv.style.left = (parseInt(getComputedStyle(containerDiv, '').left) - dx) + "px";
-//     }
-// }
-
-// toolsDiv.addEventListener('mousedown', function(e){
-//     // there is a big here!!!!!!!!!!!
-//     if(e.offsetX > (e.offsetX+BORDER_SIZE) ){
-//         x_pos = e.x
-//         document.addEventListener('mousemove',resizeXLeft, false)
-//     }
-// })
-
-// document.addEventListener("mouseup", function(){
-//     // document.removeEventListener("mousemove", resizeY,false);
-//     // document.removeEventListener("mousemove", resizeXRight,false);
-//     document.removeEventListener("mousemove", resizeXLeft,false);
-// }, false);
 
 // this function displays the function of the button when hovering over 
 $('.menuIcon').mouseenter(function(e){
@@ -150,8 +90,8 @@ $('#bgColor').on('input',function(e){
     bgColorChanged = true
     bgColor = e.target.value 
     rgbCol = hexToRgb(bgColor)
-    $('.toolBar').css('background', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.4)`)
-    $('.toolBar').css('border-color', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`)
+    // $('.toolBar').css('background', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.4)`)
+    // $('.toolBar').css('border-color', `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`)
     // console.log($('.toolbar'))
     // console.log(bgColor)
 })
@@ -171,20 +111,21 @@ $('#word').on('input',function(e){
         inputPen = true;
     }
 })
-//this opens up the color selection
-$('#color').on('click',function(e){
-    if(!colorExpands){
-        colorExpands = true
-        // e.target.style.backgroundColor = 'red'
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
 
-        $('#colorExpandDiv').css('display','block') 
-    } else if(colorExpands){
-        colorExpands = false
-        e.target.style.backgroundColor = ''
-        $('#colorExpandDiv').css('display','none')  
-    }
-})
+//this opens up the color selection
+// $('#color').on('click',function(e){
+//     if(!colorExpands){
+//         colorExpands = true
+//         // e.target.style.backgroundColor = 'red'
+//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+
+//         $('#colorExpandDiv').css('display','block') 
+//     } else if(colorExpands){
+//         colorExpands = false
+//         e.target.style.backgroundColor = ''
+//         $('#colorExpandDiv').css('display','none')  
+//     }
+// })
 
 //this updates the cursor color
 $('#colorPicker').on('input',function(e){
@@ -222,32 +163,59 @@ $('#italics').on('click',function(e){
     }
 })
 //this opens up the movement options:
-$('#movements').on('click',function(e){
-    if(!movementsExpand){
-        movementsExpand = true
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-        $('#movementsExpandDiv').css('display','block') 
+// $('#movements').on('click',function(e){
+//     if(!movementsExpand){
+//         movementsExpand = true
+//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+//         $('#movementsExpandDiv').css('display','block') 
         
-    } else if(movementsExpand){
-        movementsExpand = false
-        e.target.style.backgroundColor = ''
-        $('#movementsExpandDiv').css('display','none')  
-    }
-})
-// thi opens the fill options:
-$('#fillFunc').on('click', function(e){
-    if(!fillFuncExpand){
-        fillFuncExpand = true
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-        $('#fillExpandDiv').css('display','block') 
-    
-    } else if(fillFuncExpand){
-        fillFuncExpand = false 
-        e.target.style.backgroundColor = ''
-        $('#fillExpandDiv').css('display','none') 
-    }
+//     } else if(movementsExpand){
+//         movementsExpand = false
+//         e.target.style.backgroundColor = ''
+//         $('#movementsExpandDiv').css('display','none')  
+//     }
+// })
 
+
+// this is to highlight the selected pens method 
+$('.penItems').on('click',function(e){
+    let nodes = document.getElementsByClassName('penItems')
+    for(let i = 0; i< nodes.length; i++){
+        nodes[i].style.border = '2px solid black'
+    }
+    e.target.style.border = '3px solid #3EB4F7'
+    // console.log(e.target.id)
+    let penMethod = e.target.id
+    if(penMethod == "pen"){
+        fillSelect = false;
+        eraseerSelect = false 
+    } else if(penMethod == 'fillFunc'){
+        fillSelect = true;
+        eraseerSelect = false 
+    } else if(penMethod == 'eraseFunc'){
+        eraserSelect = true 
+        fillSelect = false 
+    }
+    console.log(fillSelect)
 })
+
+
+
+
+// thi opens the fill options:
+// $('#fillFunc').on('click', function(e){
+//     // console.log('clicked')
+//     if(!fillFuncExpand){
+//         fillFuncExpand = true
+//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+//         $('#fillExpandDiv').css('display','block') 
+    
+//     } else if(fillFuncExpand){
+//         fillFuncExpand = false 
+//         e.target.style.backgroundColor = ''
+//         $('#fillExpandDiv').css('display','none') 
+//     }
+// })
 
 
 // this function picks the fill methods 

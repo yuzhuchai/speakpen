@@ -61,7 +61,7 @@
                     <div class='italics buttonIcon menuIcon' id='italics' name='italics' ></div>
 
                     <!-- display the function when hovering -->
-                    <div id='menuText'>dasd</div>
+                    <div id='menuText'></div>
                     
                 </div>
 
@@ -70,9 +70,9 @@
             <div id='toolsContainer'>
                 <div id=toolBar>
                     <div class='toolBarDivide' id='pensContainer'>
-                        <div class='pen buttonIcon toolBarIcon' id='pen' ></div>
-                        <div class='fill buttonIcon toolBarIcon' id='fillFunc'></div>
-                        <div class='eraser buttonIcon toolBarIcon' id='eraseFunc'></div>
+                        <div class='pen buttonIcon toolBarIcon penItems' id='pen' ></div>
+                        <div class='fill buttonIcon toolBarIcon penItems' id='fillFunc'></div>
+                        <div class='eraser buttonIcon toolBarIcon penItems' id='eraseFunc'></div>
                         <!-- this is the download function -->
                         <div class='save buttonIcon toolBarIcon' id='save'></div>
 
@@ -88,10 +88,10 @@
                     </div>
 
                     <div class='toolBarDivide expandDiv' id='expandingContainer'>
-                        <div class='pen-eraser buttonIcon erasorType expandEra toolBarIcon' id='eraseText' name='eraseText'></div>
-                        <div class='regular-eraser buttonIcon erasorType expandEra toolBarIcon' id='eraseN' name='eraseN'></div>
-                        <div class='clear-all buttonIcon expandEra toolBarIcon' id='eraseAll' name='eraseAll'></div>
-                        <input type='range' class='eraser-size buttonIcon expandEra toolBarIcon' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
+                        <div class='pen-eraser buttonIcon erasorType expandEra toolBarIcon expandItem' id='eraseText' name='eraseText'></div>
+                        <div class='regular-eraser buttonIcon erasorType expandEra toolBarIcon expandItem' id='eraseN' name='eraseN'></div>
+                        <div class='clear-all buttonIcon expandEra toolBarIcon expandItem' id='eraseAll' name='eraseAll'></div>
+                        <input type='range' class='eraser-size buttonIcon expandEra toolBarIcon expandItem' id='erasesize' name='erasesize' min='1' max='900' value='12' step='1'/>
                     </div>
 
                     <div id='toobarText'></div>
@@ -108,10 +108,6 @@
     
     </body>
     <script src="app.js"></script>
-    
-    <script>
-        
-    </script>
-
-    <!-- <script src='sketch.js'></script> -->
+    <script src='word.js'></script>
+    <script src='sketch.js'></script>
 </html>
