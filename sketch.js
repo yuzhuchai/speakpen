@@ -118,7 +118,6 @@ function draw(){
         text('pen', mouseX, mouseY)
     } else if(inputPen && erasorType=='et'){
         console.log(cursorColor,'<===== et')
-
         noFill()
         textSize(erasorSize)
         stroke(cursorColor)
@@ -169,3 +168,10 @@ function mouseReleased(){
 
 
 }
+
+
+// this function saves the canvas when save is clicked 
+$('#save').on('click', function(){
+    // console.log('save clicked')
+    saveCanvas()
+})

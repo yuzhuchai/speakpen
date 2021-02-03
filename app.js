@@ -10,7 +10,7 @@ let cursorSize = 12
 let curosrBold = false  
 let cursorItalics = false
 // let movementsExpand = false
-let erasorExpand = false 
+// let erasorExpand = false 
 // let fillFuncExpand = false  
 let colorExpands = false 
 let alphaVal = 255
@@ -146,20 +146,20 @@ $('#size').on('input',function(e){
 $('#bold').on('click',function(e){
     if(!curosrBold){
         curosrBold = true
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+        e.target.style.border = '3px solid #3EB4F7'
     } else if(curosrBold){
         curosrBold = false
-        e.target.style.backgroundColor = ''
+        e.target.style.border = ''
     }
 })
 // this updates style - italics:
 $('#italics').on('click',function(e){
     if(!cursorItalics){
         cursorItalics = true
-        e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
+        e.target.style.border = '3px solid #3EB4F7'
     } else if(cursorItalics){
         cursorItalics = false
-        e.target.style.backgroundColor = ''
+        e.target.style.border = ''
     }
 })
 
@@ -186,8 +186,8 @@ $('.penItems').on('click',function(e){
     }
     e.target.style.border = '3px solid #3EB4F7'
     let erasers = document.getElementsByClassName('erasorType')
-    erasers[0].style.border = '3px solid black'
-    erasers[1].style.border = '3px solid black'
+    erasers[0].style.border = '2px solid black'
+    erasers[1].style.border = '2px solid black'
     erasorType = null
     // console.log(e.target.id)
     let penMethod = e.target.id
@@ -198,7 +198,7 @@ $('.penItems').on('click',function(e){
         fillSelect = true;
         eraserSelect = false 
     } else if(penMethod == 'eraseFunc'){
-        eraserSelect = true 
+        eraserSelect = true     
         fillSelect = false 
     }
     if(eraserSelect){
@@ -260,8 +260,8 @@ $('.penItems').on('click',function(e){
 $('.erasorType').on('click',function(e){
     console.log('clicked, pictype')
     let erasers = document.getElementsByClassName('erasorType')
-    erasers[0].style.border = '3px solid black'
-    erasers[1].style.border = '3px solid black'
+    erasers[0].style.border = '2px solid black'
+    erasers[1].style.border = '2px solid black'
     erasorType = e.target.id
     e.target.style.border = '3px solid #3EB4F7'
     console.log(erasorType)
@@ -288,3 +288,4 @@ $(document).mousemove(function(){
 
 
 
+// this function selects the simple movement->which expands the movement selection 
