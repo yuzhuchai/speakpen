@@ -202,9 +202,9 @@ $('.penItems').on('click',function(e){
         fillSelect = false 
     }
     if(eraserSelect){
-        $('#eraserItems').show()
+        $('#eraserItems').css('display','flex')
     } else {
-        $('#eraserItems').hide()
+        $('#eraserItems').css('display','none')
     }
     
 })

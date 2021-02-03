@@ -202,7 +202,9 @@ input:focus{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/blink.png');
 }
 
-
+#erasesize{
+    width: 5vh;
+}
 
 #toobarText{
     padding-top: 4vh;
@@ -220,5 +222,8 @@ input:focus{
 }
 
 .expandItems{
+    width:100%;
     display: none;
+    flex-wrap: wrap;
+    justify-content: center;
 }

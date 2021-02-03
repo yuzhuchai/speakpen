@@ -165,8 +165,6 @@ function mouseReleased(){
             drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', random(fillTextPos.xMin, fillTextPos.xMax), random(fillTextPos.yMin, fillTextPos.yMax), true))
         }
     }
-
-
 }
 
 
