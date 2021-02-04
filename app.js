@@ -23,7 +23,7 @@ let eraseAll = false
 let bgColorChanged = false 
 // let fillType = null
 let fillSelect = false 
-let eraseerSelect = false 
+let eraserSelect = false 
 let moveType = null
 
 // the following functions creates responsive page layout ---------------------------------------------------
@@ -206,6 +206,7 @@ $('.penItems').on('click',function(e){
         fillSelect = false 
     }
     if(eraserSelect){
+        deSelect('motion')
         $('#eraserItems').css('display','flex')
     } else {
         $('#eraserItems').css('display','none')
@@ -246,11 +247,35 @@ $('.moveType').on('click', function(e){
         moveType = null 
         e.target.style.border = '2px solid black'
     }
-    // moveType = e.target.id
-    console.log(moveType)
+    if(moveType == "spMove"){
+        $('#simpleMItems').css('display','flex')
+        // $('#eraserItems').css('display','none')
+        deSelect("eraser")
+
+    } else if (moveType == 'brMove'){
+        $('#simpleMItems').css('display','none')
+        // $('#eraserItems').css('display','none')
+        deSelect("eraser")
+    } else if (!moveType){
+        console.log('hi')
+        $('#simpleMItems').css('display','none')
+        // $('#eraserItems').css('display','none')
+    }
 })
 
-
+// this function helps deselect 
+function deSelect(type){
+    if(type == 'eraser'){
+        $('#eraserItems').css('display','none')
+        eraserSelect = false 
+        erasorType = null 
+        $('#eraseFunc').css('border',"2px solid black")
+    }else if (type == 'motion'){
+        $('#simpleMItems').css('display','none')
+        $("#spMove").css('border', '2px solid black')
+        moveType = null
+    }
+}
 
 
 // the following function determins which type of erasor is picked
