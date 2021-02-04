@@ -277,7 +277,6 @@ function deSelect(type){
     }
 }
 
-
 // the following function determins which type of erasor is picked
 $('.erasorType').on('click',function(e){
     console.log('clicked, pictype')

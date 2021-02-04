@@ -206,6 +206,10 @@ input:focus{
     width: 5vh;
 }
 
+#moveSpeed{
+    width: 8vh;
+}
+
 #toobarText{
     padding-top: 4vh;
     bottom: 4vh;
@@ -226,4 +230,18 @@ input:focus{
     display: none;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+#smUp{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/up.png');
+}
+#smDown{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/down.png');
+}
+#smLeft{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/left.png');
+}
+#smRight{
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/right.png');
 }
