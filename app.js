@@ -24,6 +24,7 @@ let bgColorChanged = false
 // let fillType = null
 let fillSelect = false 
 let eraseerSelect = false 
+let moveType = null
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -180,11 +181,14 @@ $('#italics').on('click',function(e){
 
 // this is to highlight the selected pens method 
 $('.penItems').on('click',function(e){
+    // this hightlight the selected item border, and not hightlight the rest
     let nodes = document.getElementsByClassName('penItems')
     for(let i = 0; i< nodes.length; i++){
         nodes[i].style.border = '2px solid black'
     }
     e.target.style.border = '3px solid #3EB4F7'
+
+    // this is setting the eraseor selected 
     let erasers = document.getElementsByClassName('erasorType')
     erasers[0].style.border = '2px solid black'
     erasers[1].style.border = '2px solid black'
@@ -206,55 +210,48 @@ $('.penItems').on('click',function(e){
     } else {
         $('#eraserItems').css('display','none')
     }
-    
 })
 
 
-// thi opens the fill options:
-// $('#fillFunc').on('click', function(e){
-//     // console.log('clicked')
-//     if(!fillFuncExpand){
-//         fillFuncExpand = true
-//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-//         $('#fillExpandDiv').css('display','block') 
-    
-//     } else if(fillFuncExpand){
-//         fillFuncExpand = false 
-//         e.target.style.backgroundColor = ''
-//         $('#fillExpandDiv').css('display','none') 
+// this is to hightlight the selected motion methods
+// $('.movementItems').on('click',function(e){
+//     // this hightlight the selected item border, and not hightlight the rest
+//     let nodes = document.getElementsByClassName('movementItems')
+//     for(let i = 0; i< nodes.length; i++){
+//         nodes[i].style.border = '2px solid black'
+//     }
+//     e.target.style.border = '3px solid #3EB4F7'
+//     let movementmethod = e.target.id 
+//     if(movementmethod == 'spMove'){
+//         moveType = 'spMove'
+//     } else if(movementmethod =='brMove'){
+//         moveType = 'brMove'
+//     } else if(movementmethod == 'reSize'){
+
+//     } else if(movementmethod == 'blink'){
+
 //     }
 // })
 
+// this is selecting the movement type, simple or br 
+$('.moveType').on('click', function(e){
+    let nodes = document.getElementsByClassName('moveType')
+    for(let i = 0; i< nodes.length; i++){
+        nodes[i].style.border = '2px solid black'
+    }
+    if(moveType != e.target.id){
+        moveType = e.target.id
+        e.target.style.border = '3px solid #3EB4F7'
+    } else {
+        moveType = null 
+        e.target.style.border = '2px solid black'
+    }
+    // moveType = e.target.id
+    console.log(moveType)
+})
 
-// this function picks the fill methods 
-// $('.fillType').on('click', function(e){
-//     let fillSelect = document.getElementsByClassName('fillType')
-//     fillSelect[0].style.backgroundColor = ''
-//     fillSelect[1].style.backgroundColor = ''
-//     if(fillType != e.target.value){
-//         fillType = e.target.value
-//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-//     } else if (fillType == e.target.value){
-//         fillType = null
-//         e.target.style.backgroundColor = ''
-//     }
-//     // console.log(fillType)
-// })
 
 
-
-// this opens the erasor options:
-// $('#eraseFunc').on('click', function(e){
-//     if(!erasorExpand){
-//         erasorExpand = true
-//         e.target.style.backgroundColor = `rgba(${rgbCol.r}, ${rgbCol.g}, ${rgbCol.b}, 0.6)`
-//         $('#eraseExpandDiv').css('display','block') 
-//     } else if(erasorExpand){
-//         erasorExpand = false 
-//         e.target.style.backgroundColor = ''
-//         $('#eraseExpandDiv').css('display','none') 
-//     }
-// })
 
 // the following function determins which type of erasor is picked
 $('.erasorType').on('click',function(e){
