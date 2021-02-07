@@ -25,6 +25,8 @@ let bgColorChanged = false
 let fillSelect = false 
 let eraserSelect = false 
 let moveType = null
+let moveHor = null
+let moveVer = null
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -213,6 +215,37 @@ $('.penItems').on('click',function(e){
     }
 })
 
+// the following function determins which type of erasor is picked
+$('.erasorType').on('click',function(e){
+    console.log('clicked, pictype')
+    let erasers = document.getElementsByClassName('erasorType')
+    erasers[0].style.border = '2px solid black'
+    erasers[1].style.border = '2px solid black'
+    erasorType = e.target.id
+    e.target.style.border = '3px solid #3EB4F7'
+    console.log(erasorType)
+})
+// this updates the size of the erasor 
+$('#erasesize').on('input',function(e){
+    erasorSize = parseInt(e.target.value)
+})
+
+// this function erase the whole canvas
+$('#eraseAll').on('click',function(e){
+    eraseAll = true
+    console.log('clicked, clear allss')
+})
+
+// this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
+$(document).mousemove(function(){
+    if($('#canvasContainer:hover').length !=0){
+        hovering = true;
+    } else {
+        hovering = false
+    }
+})
+
+
 
 // this is to hightlight the selected motion methods
 // $('.movementItems').on('click',function(e){
@@ -263,6 +296,39 @@ $('.moveType').on('click', function(e){
     }
 })
 
+// this function helpes pick the direction that the movement is going vertially 
+$('.moveVer').on('click',function(e){
+    let nodes = document.getElementsByClassName('moveVer')
+    for(let i = 0; i< nodes.length; i++){
+        nodes[i].style.border = '2px solid black'
+    }
+    if(e.target.id != moveVer){
+        moveVer = e.target.id
+        e.target.style.border = '3px solid #3EB4F7' 
+    }else if(e.target.id == moveVer){
+       e.target.style.border = '2px solid black'
+       moveVer = null
+    } 
+    console.log(moveVer)
+})  
+// this function helpes pick the direction that the movement is going horizontally  
+$('.moveHor').on('click',function(e){
+    let nodes = document.getElementsByClassName('moveHor')
+    for(let i = 0; i< nodes.length; i++){
+        nodes[i].style.border = '2px solid black'
+    }
+    if(e.target.id != moveHor){
+        moveHor = e.target.id
+        e.target.style.border = '3px solid #3EB4F7' 
+    }else if(e.target.id == moveHor){
+       e.target.style.border = '2px solid black'
+       moveHor = null
+    } 
+    console.log(moveHor)
+})
+
+
+
 // this function helps deselect 
 function deSelect(type){
     if(type == 'eraser'){
@@ -276,37 +342,6 @@ function deSelect(type){
         moveType = null
     }
 }
-
-// the following function determins which type of erasor is picked
-$('.erasorType').on('click',function(e){
-    console.log('clicked, pictype')
-    let erasers = document.getElementsByClassName('erasorType')
-    erasers[0].style.border = '2px solid black'
-    erasers[1].style.border = '2px solid black'
-    erasorType = e.target.id
-    e.target.style.border = '3px solid #3EB4F7'
-    console.log(erasorType)
-})
-// this updates the size of the erasor 
-$('#erasesize').on('input',function(e){
-    erasorSize = parseInt(e.target.value)
-})
-
-// this function erase the whole canvas
-$('#eraseAll').on('click',function(e){
-    eraseAll = true
-    console.log('clicked, clear allss')
-})
-
-// this function id trying to display the word choice as brush on the cursor when course hovers over the canvas
-$(document).mousemove(function(){
-    if($('#canvasContainer:hover').length !=0){
-        hovering = true;
-    } else {
-        hovering = false
-    }
-})
-
 
 
 // this function selects the simple movement->which expands the movement selection 
