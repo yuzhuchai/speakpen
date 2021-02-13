@@ -43,10 +43,17 @@ class Word{
         let hor = this.movement.split(' ')[1]
         let ver = this.movement.split(' ')[2]
         let speed = parseInt(this.movement.split(' ')[3])
+        let final = parseInt(this.movement.split(' ')[4])
+        let loop = this.movement.split(' ')[5]
+
         if(moveType == 'spMove'){
             this.spMovement(hor, ver, speed)
         } else if (moveType == 'brMove'){
             this.brMovement(speed)
+        } else if (moveType == 'reSize'){
+            this.changeSize(final, loop, speed)
+        } else if (moveType == 'blink'){
+            this.blink()
         }
     }
 
@@ -78,8 +85,12 @@ class Word{
 
     }
 
-    reSize(){
-        
+    changeSize(final, loop, speed){
+        // let changeSpeed =  map(speed, 1,100,)
+        let initial = this.size 
+        // let pervStep = step
+        let step = (final - this.size) / Math.abs(final - this.size)
+        this.size += step
     }
 
 }

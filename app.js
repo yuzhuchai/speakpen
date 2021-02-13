@@ -32,7 +32,8 @@ let movement = null;
 let movementVer = null;
 let movementHor = null;
 let movementSpeed = 10;
-
+let finalSize = 100
+let loop = true;
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
 const containerDiv = document.getElementById('container');
@@ -370,7 +371,22 @@ $('#moveSpeed').on('input',function(e){
     movementSpeed = parseInt(e.target.value)
 })
 
-// this function selects the 
+// this function selects the change size functions
+$('#finalSize').on('input', function(e){
+        finalSize = e.target.value
+})
+
+// this function makes the change size function a loop, 
+$('#loop').on('click',function(e){
+    // loop was selected at first
+    if(loop){
+        loop = false 
+        e.target.style.border = '2px solid black'
+    } else if (!loop){
+        loop = true 
+        e.target.style.border = '3px solid #3EB4F7'
+    }
+})
 
 
 // this function helps deselect 
@@ -388,11 +404,6 @@ function deSelect(type){
         $('#simpleMItems').css('display','none')
         $('#blowItems').css('display','none')
 
-
-
         moveType = null
     }
 }
-
-
-// this function selects the simple movement->which expands the movement selection 

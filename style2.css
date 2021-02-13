@@ -207,14 +207,12 @@ input:focus{
     min-width: 7vh;
     background-repeat: no-repeat;
     background-size: contain;
+    border: 3px solid #3EB4F7;
 }
 
-#erasesize{
-    width: 5vh;
-}
 
-#moveSpeed{
-    width: 8vh;
+#moveSpeed, #finalSize, #erasesize{
+    width: 7vh;
 }
 
 #toobarText{
