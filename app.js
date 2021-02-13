@@ -287,27 +287,44 @@ $('.moveType').on('click', function(e){
         e.target.style.border = '2px solid black'
     }
     if(moveType == "spMove"){
+        // display what needs to be displayed 
         $('#simpleMItems').css('display','flex')
         // $('#eraserItems').css('display','none')
         $('.moveVer').css('display','block')
         $('.moveHor').css('display','block')
+
+        // hide everything else 
+        $('#blowItems').css('display','none')
         deSelect("eraser")
     } else if (moveType == 'brMove'){
+        // display what neeeds to be displayed
         $('#simpleMItems').css('display','flex')
+
+        // hide everything else 
         $('.moveVer').css('display','none')
         $('.moveHor').css('display','none')
-        // $('#eraserItems').css('display','none')
+        $('#blowItems').css('display','none')
         deSelect("eraser")
     } else if (moveType == 'reSize'){
-        $('#simpleMItems').css('display','none')
-        
-    } else if (moveType == 'blink'){
-        $('#simpleMItems').css('display','none')
+        //display 
+        $('#blowItems').css('display','flex')
 
-    } else if (!moveType){
-        // console.log('hi')
+        // hide 
         $('#simpleMItems').css('display','none')
-        // $('#eraserItems').css('display','none')
+        deSelect('eraser')
+    } else if (moveType == 'blink'){
+        // display
+        $('#blinkItems').css('display','flex')
+
+        // hide 
+        $('#simpleMItems').css('display','none')
+        $('#blowItems').css('display','none')
+        console.log('blink')
+        deSelect('eraser')
+    } else if (!moveType){
+        // hide everythign
+        $('#simpleMItems').css('display','none')
+        $('#blowItems').css('display','none')
     }
 })
 
@@ -348,10 +365,12 @@ $('.moveHor').on('click',function(e){
     // console.log(movement)
 })
 
-
+// this function sets the speeed of the movements 
 $('#moveSpeed').on('input',function(e){
     movementSpeed = parseInt(e.target.value)
 })
+
+// this function selects the 
 
 
 // this function helps deselect 
@@ -362,8 +381,15 @@ function deSelect(type){
         erasorType = null 
         $('#eraseFunc').css('border',"2px solid black")
     }else if (type == 'motion'){
-        $('#simpleMItems').css('display','none')
+        $('#brMove').css('border','2px solid black')
         $("#spMove").css('border', '2px solid black')
+        $('#blink').css('border', '2px solid black')
+        $('#reSize').css('border', '2px solid black')
+        $('#simpleMItems').css('display','none')
+        $('#blowItems').css('display','none')
+
+
+
         moveType = null
     }
 }

@@ -202,6 +202,13 @@ input:focus{
     background-image: url('https://yuzhuchai.com/works/speakpen/assets/blink.png');
 }
 
+#loop{
+    background-image: url('assets/loop.png');
+    min-width: 7vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 #erasesize{
     width: 5vh;
 }

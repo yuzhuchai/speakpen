@@ -164,7 +164,7 @@ function mouseReleased(){
         fillRect.y = null
         fillOnRelease = true 
         for (let i = 0; i <= 100; i++){
-            movement = moveType + ' ' + movementHor + ' ' + movementVer + ' ' + movementSpeed
+            movement = moveType + ' ' + movementHor + ' ' + movementVer + ' ' + movementSpeed   
             drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, movement, random(fillTextPos.xMin, fillTextPos.xMax), random(fillTextPos.yMin, fillTextPos.yMax), true))
         }
     }

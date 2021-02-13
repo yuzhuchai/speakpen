@@ -82,8 +82,8 @@
                     <div class='toolBarDivide' id='movementContainer'>
                         <div class='simple-motion buttonIcon toolBarIcon movementItems moveType' id='spMove' name='spMove'></div>
                         <div class='brownian-motion buttonIcon toolBarIcon movementItems moveType' id='brMove' name='brMove'></div>
-                        <div class='blow-up buttonIcon toolBarIcon movementItems' id='reSize'></div>
-                        <div class='blink buttonIcon toolBarIcon movementItems' id='blink'></div>
+                        <div class='change-size buttonIcon toolBarIcon movementItems moveType' id='reSize'></div>
+                        <div class='blink buttonIcon toolBarIcon movementItems moveType' id='blink'></div>
                         
                     </div>
 
@@ -104,6 +104,16 @@
                             <div class='move-left buttonIcon toolBarIcon moveHor' id='smLeft'></div>
                             <div class='move-right buttonIcon toolBarIcon moveHor' id='smRight'></div>
                             <input type='range' class='speed buttonIcon toolBarIcon' id='moveSpeed' min='1' max='100' value='10'/>
+                        </div>
+
+                        <div class='expandItems' id='blowItems'>
+                            <input type='number' class='initial-size buttonIcon toolBarIcon' id='initialSize' min='1' max='500' value='20'/>
+                            <input type='number' class='final-size buttonIcon toolBarIcon' id='finalSize' min='1' max='500' value='50'/>
+                            <div class='loop buttonIcon toolBarIcon' id='loop'></div>
+                        </div>
+
+                        <div class='expandItems' id='blinkItems'>
+                            
                         </div>
                     </div>
 
