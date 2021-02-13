@@ -42,30 +42,44 @@ class Word{
         let moveType = this.movement.split(' ')[0]
         let hor = this.movement.split(' ')[1]
         let ver = this.movement.split(' ')[2]
+        let speed = parseInt(this.movement.split(' ')[3])
         if(moveType == 'spMove'){
-            this.spMovement(hor, ver)
+            this.spMovement(hor, ver, speed)
         } else if (moveType == 'brMove'){
-            this.brMovement()
+            this.brMovement(speed)
         }
-        
     }
 
-    spMovement(hor, ver){
+    spMovement(hor, ver, speed){
+        let spSpeed = map(speed, 1, 100, 0.1, 8)
+        console.log(this.movement)
+        // console.log(speed)
         if(hor == 'smLeft'){
-            this.x --
+            this.x -= spSpeed 
         } else if (hor == 'smRight'){
-            this.x ++
+            this.x += spSpeed
         }
 
         if(ver == 'smUp'){
-            this.y --
+            this.y -= spSpeed
         }else if (ver == 'smDown'){
-            this.y ++
+            this.y += spSpeed
         }
     }
     
-    brMovement(){
-        this.x += (random(-5, 5))
-        this.y += (random(-5, 5))
+    brMovement(speed){
+        let brSpeed = map(speed, 1, 100, 0.5, 50)
+        let minbrSpeed = 0 - (brSpeed)
+        this.x += (random(minbrSpeed, brSpeed))
+        this.y += (random(minbrSpeed, brSpeed))
     }
+
+    blink(){
+
+    }
+
+    reSize(){
+        
+    }
+
 }

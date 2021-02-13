@@ -31,6 +31,7 @@ let moveType = null
 let movement = null;
 let movementVer = null;
 let movementHor = null;
+let movementSpeed = 10;
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -288,11 +289,21 @@ $('.moveType').on('click', function(e){
     if(moveType == "spMove"){
         $('#simpleMItems').css('display','flex')
         // $('#eraserItems').css('display','none')
+        $('.moveVer').css('display','block')
+        $('.moveHor').css('display','block')
         deSelect("eraser")
     } else if (moveType == 'brMove'){
-        $('#simpleMItems').css('display','none')
+        $('#simpleMItems').css('display','flex')
+        $('.moveVer').css('display','none')
+        $('.moveHor').css('display','none')
         // $('#eraserItems').css('display','none')
         deSelect("eraser")
+    } else if (moveType == 'reSize'){
+        $('#simpleMItems').css('display','none')
+        
+    } else if (moveType == 'blink'){
+        $('#simpleMItems').css('display','none')
+
     } else if (!moveType){
         // console.log('hi')
         $('#simpleMItems').css('display','none')
@@ -338,7 +349,9 @@ $('.moveHor').on('click',function(e){
 })
 
 
-
+$('#moveSpeed').on('input',function(e){
+    movementSpeed = parseInt(e.target.value)
+})
 
 
 // this function helps deselect 
