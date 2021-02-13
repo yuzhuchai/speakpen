@@ -24,9 +24,13 @@ let bgColorChanged = false
 // let fillType = null
 let fillSelect = false 
 let eraserSelect = false 
+// let moveType = null
+// let moveHor = null
+// let moveVer = null
 let moveType = null
-let moveHor = null
-let moveVer = null
+let movement = null;
+let movementVer = null;
+let movementHor = null;
 
 // the following functions creates responsive page layout ---------------------------------------------------
 // const consoleDiv = document.getElementById('console');
@@ -274,6 +278,7 @@ $('.moveType').on('click', function(e){
         nodes[i].style.border = '2px solid black'
     }
     if(moveType != e.target.id){
+        test = e.target.id
         moveType = e.target.id
         e.target.style.border = '3px solid #3EB4F7'
     } else {
@@ -284,17 +289,18 @@ $('.moveType').on('click', function(e){
         $('#simpleMItems').css('display','flex')
         // $('#eraserItems').css('display','none')
         deSelect("eraser")
-
     } else if (moveType == 'brMove'){
         $('#simpleMItems').css('display','none')
         // $('#eraserItems').css('display','none')
         deSelect("eraser")
     } else if (!moveType){
-        console.log('hi')
+        // console.log('hi')
         $('#simpleMItems').css('display','none')
         // $('#eraserItems').css('display','none')
     }
 })
+
+
 
 // this function helpes pick the direction that the movement is going vertially 
 $('.moveVer').on('click',function(e){
@@ -302,14 +308,16 @@ $('.moveVer').on('click',function(e){
     for(let i = 0; i< nodes.length; i++){
         nodes[i].style.border = '2px solid black'
     }
-    if(e.target.id != moveVer){
-        moveVer = e.target.id
+    if(e.target.id != movementVer){
+        movementVer = e.target.id
+        // movement.moveVer = e.target.id
         e.target.style.border = '3px solid #3EB4F7' 
-    }else if(e.target.id == moveVer){
-       e.target.style.border = '2px solid black'
-       moveVer = null
+    }else if(e.target.id == movementVer){
+        movementVer = null
+        e.target.style.border = '2px solid black'
+        // movement.moveVer = null
     } 
-    console.log(moveVer)
+    // console.log(movement)
 })  
 // this function helpes pick the direction that the movement is going horizontally  
 $('.moveHor').on('click',function(e){
@@ -317,15 +325,19 @@ $('.moveHor').on('click',function(e){
     for(let i = 0; i< nodes.length; i++){
         nodes[i].style.border = '2px solid black'
     }
-    if(e.target.id != moveHor){
-        moveHor = e.target.id
+    if(e.target.id != movementHor){
+        movementHor = e.target.id
+        // movement.moveHor = e.target.id
         e.target.style.border = '3px solid #3EB4F7' 
-    }else if(e.target.id == moveHor){
-       e.target.style.border = '2px solid black'
-       moveHor = null
+    }else if(e.target.id == movementHor){
+        movementHor = null
+        e.target.style.border = '2px solid black'
+    //    movement.moveHor = null
     } 
-    console.log(moveHor)
+    // console.log(movement)
 })
+
+
 
 
 

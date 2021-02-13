@@ -13,6 +13,7 @@ class Word{
 
     createBrush(){
         if(this.text){
+            this.update()
             this.displayText()
         }else if(!this.text){
             // console.log(this.color)
@@ -38,7 +39,33 @@ class Word{
     }
 
     update(){
-
+        let moveType = this.movement.split(' ')[0]
+        let hor = this.movement.split(' ')[1]
+        let ver = this.movement.split(' ')[2]
+        if(moveType == 'spMove'){
+            this.spMovement(hor, ver)
+        } else if (moveType == 'brMove'){
+            this.brMovement()
+        }
+        
     }
 
+    spMovement(hor, ver){
+        if(hor == 'smLeft'){
+            this.x --
+        } else if (hor == 'smRight'){
+            this.x ++
+        }
+
+        if(ver == 'smUp'){
+            this.y --
+        }else if (ver == 'smDown'){
+            this.y ++
+        }
+    }
+    
+    brMovement(){
+        this.x += (random(-5, 5))
+        this.y += (random(-5, 5))
+    }
 }

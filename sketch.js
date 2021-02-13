@@ -15,6 +15,7 @@ let fillTextPos = {
 
 let fillOnRelease = false 
 
+
 function setup(){
    
 }
@@ -78,14 +79,15 @@ function draw(){
             drawn.push(new Word(null,erasorSize,bgColor,255,null,null,mouseX, mouseY, false))
         } else if (!erasorType && !fillSelect){
             // this is drawin the regular text 
-            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', mouseX, mouseY, true))
+            movement = moveType + ' ' + movementHor + ' ' + movementVer
+            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, movement, mouseX, mouseY, true))
         } 
     }
 
 //     // this draws everywords on to the canvas everyframe-------------------------------------
     for (let word of drawn){
-        // word.displayText()
         word.createBrush()
+        // word.update() /// ddoes not work 
     }
 
 
@@ -162,14 +164,14 @@ function mouseReleased(){
         fillRect.y = null
         fillOnRelease = true 
         for (let i = 0; i <= 100; i++){
-            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, 'movement', random(fillTextPos.xMin, fillTextPos.xMax), random(fillTextPos.yMin, fillTextPos.yMax), true))
+            drawn.push(new Word(cursorText, cursorSize, cursorRGB, alphaVal, cursorStyle, movement, random(fillTextPos.xMin, fillTextPos.xMax), random(fillTextPos.yMin, fillTextPos.yMax), true))
         }
     }
 }
 
 
 // this function saves the canvas when save is clicked 
-$('#save').on('click', function(){
+$('#save').on('click', function(){  
     // console.log('save clicked')
     saveCanvas()
 })
