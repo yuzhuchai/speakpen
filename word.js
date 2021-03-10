@@ -53,7 +53,8 @@ class Word{
         } else if (moveType == 'reSize'){
             this.changeSize(final, loop, speed)
         } else if (moveType == 'blink'){
-            this.blink()
+            let seed = random(10)
+            this.blink(speed,seed)
         }
     }
 
@@ -81,8 +82,10 @@ class Word{
         this.y += (random(minbrSpeed, brSpeed))
     }
 
-    blink(){
-
+    blink(speed,seed){
+        seed++
+        console.log(seed)
+        this.alpha = 128 + 128 * Math.sin(seed)
     }
 
     changeSize(final, loop, speed){
