@@ -39,23 +39,26 @@ class Word{
     }
 
     update(){
-        let moveType = this.movement.split(' ')[0]
-        let hor = this.movement.split(' ')[1]
-        let ver = this.movement.split(' ')[2]
-        let speed = parseInt(this.movement.split(' ')[3])
-        let final = parseInt(this.movement.split(' ')[4])
-        let loop = this.movement.split(' ')[5]
-
-        if(moveType == 'spMove'){
-            this.spMovement(hor, ver, speed)
-        } else if (moveType == 'brMove'){
-            this.brMovement(speed)
-        } else if (moveType == 'reSize'){
-            this.changeSize(final, loop, speed)
-        } else if (moveType == 'blink'){
-            let seed = random(10)
-            this.blink(speed,seed)
+        if(this.movement){
+            let moveType = this.movement.split(' ')[0]
+            let hor = this.movement.split(' ')[1]
+            let ver = this.movement.split(' ')[2]
+            let speed = parseInt(this.movement.split(' ')[3])
+            let final = parseInt(this.movement.split(' ')[4])
+            let loop = this.movement.split(' ')[5]
+    
+            if(moveType == 'spMove'){
+                this.spMovement(hor, ver, speed)
+            } else if (moveType == 'brMove'){
+                this.brMovement(speed)
+            } else if (moveType == 'reSize'){
+                this.changeSize(final, loop, speed)
+            } else if (moveType == 'blink'){
+                let seed = random(10)
+                this.blink(speed,seed)
+            }
         }
+ 
     }
 
     spMovement(hor, ver, speed){

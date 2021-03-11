@@ -203,7 +203,7 @@ input:focus{
 }
 
 #loop{
-    background-image: url('assets/loop.png');
+    background-image: url('https://yuzhuchai.com/works/speakpen/assets/loop.png');
     min-width: 7vh;
     background-repeat: no-repeat;
     background-size: contain;
