@@ -108,31 +108,31 @@ input:focus{
 }
 
 #sizeB{
-    background-image: url('/assets/size.png');
+    background-image: url('./assets/size.png');
 }
 
 #bgColorB {
-    background-image: url('/assets/bgcolor.png');
+    background-image: url('./assets/bgcolor.png');
 }
 
 #colorB{
-    background-image: url('/assets/color.png');
+    background-image: url('./assets/color.png');
 }
 
 #alphaB{
-    background-image: url('/assets/opacity.png');
+    background-image: url('./assets/opacity.png');
 }
 
 #bold{
-    background-image: url('/assets/bold.png');
+    background-image: url('./assets/bold.png');
 }
 
 #italics{
-    background-image: url('/assets/italics.png');
+    background-image: url('./assets/italics.png');
 }
 
 #save{
-    background-image: url('/assets/save.png');
+    background-image: url('./assets/save.png');
 }
 
 .toolBarDivide{
@@ -154,26 +154,26 @@ input:focus{
 }
 
 #pen{
-    background-image: url('/assets/pen.png');
+    background-image: url('./assets/pen.png');
     border: 3px solid #3EB4F7;
 }
 
 #fillFunc{
-    background-image: url('/assets/fill.png');
+    background-image: url('./assets/fill.png');
 }
 
 #eraseFunc{
-    background-image: url('/assets/erasor.png');
+    background-image: url('./assets/erasor.png');
 }
 
 #et{
-    background-image: url('/assets/terasor.png');
+    background-image: url('./assets/terasor.png');
 }
 #en{
-    background-image: url('/assets/nerasor.png');
+    background-image: url('./assets/nerasor.png');
 }
 #eraseAll{
-    background-image: url('/assets/clear.png');
+    background-image: url('./assets/clear.png');
 }
 
 #expandingContainer {
@@ -187,23 +187,23 @@ input:focus{
 }
 
 #spMove{
-    background-image: url('/assets/rm.png');
+    background-image: url('./assets/rm.png');
 }
 
 #brMove{
-    background-image: url('/assets/bm.png');
+    background-image: url('./assets/bm.png');
 }
 
 #reSize{
-    background-image: url('/assets/blowup.png');
+    background-image: url('./assets/blowup.png');
 }
 
 #blink{
-    background-image: url('/assets/blink.png');
+    background-image: url('./assets/blink.png');
 }
 
 #loop{
-    background-image: url('/assets/loop.png');
+    background-image: url('./assets/loop.png');
     min-width: 7vh;
     background-repeat: no-repeat;
     background-size: contain;
@@ -239,14 +239,14 @@ input:focus{
 
 
 #smUp{
-    background-image: url('/assets/up.png');
+    background-image: url('./assets/up.png');
 }
 #smDown{
-    background-image: url('/assets/down.png');
+    background-image: url('./assets/down.png');
 }
 #smLeft{
-    background-image: url('/assets/left.png');
+    background-image: url('./assets/left.png');
 }
 #smRight{
-    background-image: url('/assets/right.png');
+    background-image: url('./assets/right.png');
 }
