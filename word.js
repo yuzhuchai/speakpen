@@ -58,13 +58,11 @@ class Word{
                 this.blink(speed,seed)
             }
         }
- 
+
     }
 
     spMovement(hor, ver, speed){
         let spSpeed = map(speed, 1, 100, 0.1, 8)
-        console.log(this.movement)
-        // console.log(speed)
         if(hor == 'smLeft'){
             this.x -= spSpeed 
         } else if (hor == 'smRight'){

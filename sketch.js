@@ -175,4 +175,21 @@ function mouseReleased(){
 $('#save').on('click', function(){  
     // console.log('save clicked')
     saveCanvas()
+    console.log(canvas);
 })
+
+
+
+// this function displays canvas image as preview data
+$('#upload').on('click', function(){
+    displayCanvasAsPreview()
+})
+function displayCanvasAsPreview(){
+    let canvas = $('canvas')[0];
+    let imgsrc = canvas.toDataURL('image/png')
+    console.log(imgsrc)
+    $('#previewImg').attr('src', imgsrc)
+    let imgURL = canvas.toDataURL()
+    $('#imgUrl').attr('value', imgURL)
+}
+
